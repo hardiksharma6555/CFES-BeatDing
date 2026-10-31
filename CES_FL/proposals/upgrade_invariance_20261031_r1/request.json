@@ -1,0 +1,31 @@
+{
+  "id": "upgrade_invariance_20261031_r1",
+  "state": "CPU_SMOKE_PASSED_GPU_AND_REAL_INPUT_PREFLIGHT_PENDING",
+  "hypothesis": "Partial encoder adaptation may improve detection; group DRO and controlled age consistency may improve robustness. Neither is a proven improvement.",
+  "baseline": "R0 frozen detection-pretrained encoder + BCE; same encoder checkpoint, heads, seed, original sampler, updates, validation selection and calibration in all arms",
+  "changed_settings": {
+    "R1_vs_R0": "Train Xception exit stage at lr=1e-5 with BN buffers frozen",
+    "R2_vs_R1": "Replace mean BCE with stochastic group-DRO weighted BCE over label x ids8",
+    "RN_vs_R2": "Add asinh-score consistency with no-change reconstruction, K=8 balanced anchors each step",
+    "RD_vs_RN": "Use independently generated approved age edit for the same pair anchor schedule"
+  },
+  "scope": "Xception exact cluster-bound configs; both backbone policies covered in software smoke; ResNet production binding requires its own reviewed config",
+  "dependencies": [
+    "Existing pinned P_pretrain checkpoint and ImageNet weights",
+    "Exact recorded TRAIN/VAL/pair/control SHA256 values",
+    "Cluster CUDA smoke before training",
+    "Actual PBS ngpus allocation and binding"
+  ],
+  "expanded_pair_study": "PENDING: >=300 reviewed TRAIN originals with both age directions and matched controls. Existing six-source configs are diagnostics only. No new labels or approvals fabricated.",
+  "required_checks": [
+    "CPU suite",
+    "CUDA suite on allocated device",
+    "Input hash and split preflight",
+    "Preserve old configs/results/source byte-for-byte",
+    "Independent post-run artifact review"
+  ],
+  "selection": "validation AUC only; calibrated threshold from selected checkpoint validation reals; no test tuning",
+  "training_launched": false,
+  "gpu_smoke": "PENDING",
+  "result_claim": "No benchmark improvement claimed"
+}

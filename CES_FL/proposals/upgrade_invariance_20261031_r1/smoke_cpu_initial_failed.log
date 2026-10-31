@@ -1,0 +1,61 @@
+test_consistency_gradients_both_paths (test_upgrade.UpgradeTests.test_consistency_gradients_both_paths) ... ok
+test_dro_numerical_gradient_missing_groups_and_reload (test_upgrade.UpgradeTests.test_dro_numerical_gradient_missing_groups_and_reload) ... ok
+test_fail_closed_inputs_controls_and_pool_coverage (test_upgrade.UpgradeTests.test_fail_closed_inputs_controls_and_pool_coverage) ... FAIL
+test_five_training_arms_reload_and_frozen_threshold (test_upgrade.UpgradeTests.test_five_training_arms_reload_and_frozen_threshold) ... {"epoch": 1, "validation_auc": 1.0, "pairs": 0}
+{"epoch": 1, "validation_auc": 1.0, "pairs": 0}
+{"epoch": 1, "validation_auc": 1.0, "pairs": 0}
+ERROR
+test_frozen_and_identical_initial_heads (test_upgrade.UpgradeTests.test_frozen_and_identical_initial_heads) ... ok
+test_pair_schedule_balance_control_and_rng_isolation (test_upgrade.UpgradeTests.test_pair_schedule_balance_control_and_rng_isolation) ... ERROR
+test_partial_gradients_bn_and_decomposition_both_backbones (test_upgrade.UpgradeTests.test_partial_gradients_bn_and_decomposition_both_backbones) ... ok
+
+======================================================================
+ERROR: test_five_training_arms_reload_and_frozen_threshold (test_upgrade.UpgradeTests.test_five_training_arms_reload_and_frozen_threshold)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/tests/test_upgrade.py", line 171, in test_five_training_arms_reload_and_frozen_threshold
+    checkpoint=up.run(config,root/name,DEVICE,_synthetic_smoke=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/src/ces_fl_upgrade.py", line 212, in run
+    rows,val,group_ids,groups,splits,pool = preflight(c)
+                                            ^^^^^^^^^^^^
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/src/ces_fl_upgrade.py", line 200, in preflight
+    controls = base.read_controls(c['controls_manifest'], rows, pairs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/src/ces_fl_diagram_model_v021.py", line 657, in read_controls
+    if source not in index or source in seen:raise ValueError('Invalid/duplicate control source')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid/duplicate control source
+
+======================================================================
+ERROR: test_pair_schedule_balance_control_and_rng_isolation (test_upgrade.UpgradeTests.test_pair_schedule_balance_control_and_rng_isolation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/tests/test_upgrade.py", line 131, in test_pair_schedule_balance_control_and_rng_isolation
+    c=fixture(Path(d));rows,_,_,_,_,a=up.preflight(c);_,_,_,_,_,b=up.preflight(c)
+                                      ^^^^^^^^^^^^^^^
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/src/ces_fl_upgrade.py", line 200, in preflight
+    controls = base.read_controls(c['controls_manifest'], rows, pairs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/src/ces_fl_diagram_model_v021.py", line 657, in read_controls
+    if source not in index or source in seen:raise ValueError('Invalid/duplicate control source')
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid/duplicate control source
+
+======================================================================
+FAIL: test_fail_closed_inputs_controls_and_pool_coverage (test_upgrade.UpgradeTests.test_fail_closed_inputs_controls_and_pool_coverage)
+----------------------------------------------------------------------
+ValueError: Invalid/duplicate control source
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing/CES_FL/tests/test_upgrade.py", line 157, in test_fail_closed_inputs_controls_and_pool_coverage
+    with self.assertRaisesRegex(ValueError,'chained'):up.preflight(c)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "chained" does not match "Invalid/duplicate control source"
+
+----------------------------------------------------------------------
+Ran 7 tests in 52.473s
+
+FAILED (failures=1, errors=2)
