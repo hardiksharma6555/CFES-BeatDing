@@ -1,0 +1,4 @@
+/tmp/cesfl_upgrade_env/bin/python CES_FL/src/ces_fl_fair_evidence.py smoke --device cpu --out /tmp/cesfl_fair_evidence_smoke_cpu_20261101_r2
+Exit: 0
+Additional checks: module/CLI help; all five config parity outside declared objective switches; no project imports; source receipt hash matches.
+No production training or CUDA execution performed locally.

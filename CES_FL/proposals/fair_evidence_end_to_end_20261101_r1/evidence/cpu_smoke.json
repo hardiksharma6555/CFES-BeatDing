@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "device": "cpu",
+  "checks": [
+    "mmd_matches_independent_equal_group_mixture_and_finite_difference_gradient",
+    "classes_never_aligned_to_each_other",
+    "joint_alignment_detects_constructed_score_cancellation",
+    "all_five_objectives_and_worst_condition_soft_error_gradients",
+    "matched_distinct_cell_sampling_independent_conditions_and_tied_threshold",
+    "224px_full_width_xception_gradients_frozen_bn_exact_decomposition_and_parameter_counts",
+    "strict_config_provenance_and_pretraining_transfer_preflight",
+    "configured_batch_backward_dry_run_without_parameter_or_buffer_updates",
+    "full_training_save_reload_utility_gate_and_independent_validation_replay",
+    "deterministic_epoch_boundary_resume_and_matched_bce_training",
+    "evaluation_label_flip_keeps_threshold_audit_and_map_export"
+  ],
+  "check_count": 11,
+  "parameters": {
+    "total": 21594159,
+    "trainable": 7575591
+  },
+  "source_sha256": "a25395f3eadc069114712c01dc415663379fb431deedc35ad7a440bcbd542e60",
+  "torch": "2.15.0",
+  "python": "3.12.8",
+  "data": "synthetic software fixtures only; temporary images/checkpoints removed",
+  "production_cluster_data_tested": false,
+  "fairness_improvement_verified": false,
+  "novelty_established": false,
+  "cuda_tested": false
+}

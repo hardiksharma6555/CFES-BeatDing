@@ -1,0 +1,30 @@
+Implement the following launch exactly; do not redesign the experiment or change thresholds/hyperparameters after observing results.
+
+Fetch branch upgrade/fair-evidence-end-to-end-20261101 from https://github.com/hardiksharma6555/CFES-BeatDing.git. The handoff message supplies its exact commit. Verify that fetched HEAD equals that commit and create a new detached worktree at that commit. Read CES_FL/AGENTS.md and CES_FL/proposals/fair_evidence_end_to_end_20261101_r1/README.md. Keep active jobs, historical source and completed outputs untouched. The standalone entry point is CES_FL/src/ces_fl_fair_evidence.py; do not use the legacy train-config launcher.
+
+Prepare one scheduler job with ngpus=1 using this cluster's established GPU allocation and binding mechanism. Confirm the actual assigned GPU and CUDA_VISIBLE_DEVICES from scheduler evidence; do not choose a GPU because it appears idle. Use the existing /home/sachin.chaudhary/.conda/envs/aiface/bin/python environment. Record Python/PyTorch/CUDA versions, job ID, assigned GPU, exact Git commit and all commands. Do not install dependencies or download weights automatically. Run the commands below inside that allocation, from the immutable checkout root. Choose a fresh RUN_ROOT on approved cluster storage. Replace only the example output root with a unique absolute path. If a prerequisite or smoke test fails, preserve logs, report the exact failure and stop before full training; do not silently change the source or configuration.
+
+set -euo pipefail
+PY=/home/sachin.chaudhary/.conda/envs/aiface/bin/python
+PROPOSAL=CES_FL/proposals/fair_evidence_end_to_end_20261101_r1
+SCRIPT=CES_FL/src/ces_fl_fair_evidence.py
+RUN_ROOT=/home/sachin.chaudhary/ces_fl_runs/fair_evidence_20261101_r1_launch01
+test ! -e "$RUN_ROOT"
+mkdir -p "$RUN_ROOT"
+git rev-parse HEAD > "$RUN_ROOT/commit.txt"
+sha256sum -c "$PROPOSAL/SHA256SUMS" | tee "$RUN_ROOT/hash_checks.log"
+"$PY" -c 'import torch,sys; print(sys.version); print(torch.__version__,torch.version.cuda); assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))' | tee "$RUN_ROOT/environment.log"
+"$PY" "$SCRIPT" preflight --config "$PROPOSAL/configs/bce.json" | tee "$RUN_ROOT/preflight_bce.log"
+"$PY" "$SCRIPT" preflight --config "$PROPOSAL/configs/full.json" | tee "$RUN_ROOT/preflight_full.log"
+"$PY" -u "$SCRIPT" smoke --device cuda --out "$RUN_ROOT/cuda_smoke" 2>&1 | tee "$RUN_ROOT/cuda_smoke.log"
+"$PY" -u "$SCRIPT" dry-run --config "$PROPOSAL/configs/full.json" --device cuda --out "$RUN_ROOT/real_batch_check" 2>&1 | tee "$RUN_ROOT/real_batch_check.log"
+"$PY" -u "$SCRIPT" train --config "$PROPOSAL/configs/bce.json" --device cuda --out "$RUN_ROOT/bce" 2>&1 | tee "$RUN_ROOT/bce.log"
+"$PY" -u "$SCRIPT" train --config "$PROPOSAL/configs/full.json" --device cuda --out "$RUN_ROOT/full" 2>&1 | tee "$RUN_ROOT/full.log"
+
+This initial launch runs only matched BCE and the full proposal, sequentially. score/marginal/joint ablation configurations are prepared but not included in this initial batch. If BCE exits 2 because utility floors fail, preserve that result, report it, and explicitly launch the already-planned full arm separately with unchanged settings; do not relabel best_auc.pt as the primary result. A DONE file alone is not verification. Require summary.json plus RUN_VERIFIED.json for an eligible selected checkpoint. Interrupted runs may resume only from a complete matching epoch-boundary last.pt using the original output path and --resume; never overwrite completed runs.
+
+After validation completion, publish aggregate results and receipts in a new dated results directory: each condition's overall AUC, primary-group AUC/FPR/FNR, worst-group AUC, FPR/FNR gaps, selected epoch and shared threshold, parameter counts, source/config/input hashes, and descriptive contribution-cancellation audit. Record the actual launch and finish timestamps, scheduler/job state and failures. Update progress only from actual logs/artifacts; no unattended monitoring is implied. Do not publish checkpoints, face images, row-level private data or credentials. Do not overwrite previous completed results or claim these validation values beat Ding's test tables.
+
+Do not evaluate test sets in this initial batch. Once the protocol/checkpoint choice is frozen and a test run is explicitly requested, the same standalone file supports:
+"$PY" "$SCRIPT" evaluate --checkpoint "$RUN_ROOT/full/best.pt" --manifest /absolute/approved_TEST.csv --split test --device cuda --out /absolute/NEW_TEST_REPORT
+It will reuse the selected validation threshold without recalibration. Export diagnostic maps only to private cluster storage with the export command. Report CUDA/real-data checks separately from the supplied local CPU synthetic checks and report fairness improvement only if the actual matched results support it.
