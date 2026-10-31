@@ -1,0 +1,64 @@
+{
+  "observed_utc": "2026-10-31T20:14:22.985855+00:00",
+  "status": "PASS",
+  "tests": 6,
+  "device": "cpu",
+  "cuda_available": false,
+  "cuda_tested": false,
+  "real_checkpoint_or_dataset_tested": false,
+  "new_detector_training_started": false,
+  "environment": {
+    "python": "3.12.8",
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "numpy": "2.5.4",
+    "sklearn": "1.9.1"
+  },
+  "commands": [
+    {
+      "command": [
+        "/private/tmp/cesfl_upgrade_env/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "CES_FL/proposals/fairness_mechanism_review_20261101_r1",
+        "-p",
+        "test_mechanism.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "CES_FL/proposals/fairness_mechanism_review_20261101_r1/check_1.log"
+    },
+    {
+      "command": [
+        "/private/tmp/cesfl_upgrade_env/bin/python",
+        "CES_FL/proposals/fairness_mechanism_review_20261101_r1/mechanism_probe.py",
+        "--out",
+        "CES_FL/proposals/fairness_mechanism_review_20261101_r1/synthetic_probe_results_final.json"
+      ],
+      "exit_code": 0,
+      "log": "CES_FL/proposals/fairness_mechanism_review_20261101_r1/check_2.log"
+    },
+    {
+      "command": [
+        "/private/tmp/cesfl_upgrade_env/bin/python",
+        "CES_FL/proposals/fairness_mechanism_review_20261101_r1/audit_checkpoint.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "log": "CES_FL/proposals/fairness_mechanism_review_20261101_r1/check_3.log"
+    }
+  ],
+  "sha256": {
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R0_frozen_bce_audit.json": "dd99fc3e88fc4b15fdf4f116c04c8bbafddc2ab6f8ee9c443f50a5e3a9c090a2",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R1_partial_bce_audit.json": "9b8ecdf237362f12d879c1dcbaccc5164d3e12b45af0bb9ba40b269e12cce1fc",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R2_partial_dro_audit.json": "f9aefcec77a3a36677ee03916ec318d9f0cec8228d0b8914615e87790efa10e5",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/audit_checkpoint.py": "9d8db9d9fc8e8ff6d27b64b1894b9cbfc19dfced4b08d9a8a635271178c7df71",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/mechanism_probe.py": "ae528be8028c6f86310fc8b872a0ee3d976b893868fd2a7da2ff6bd4a4e6fa3d",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/request.json": "580eb3c06240ad6c295d8ac282fe498a2e3db222a79b1bfb43e68e5bec3a473c",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/synthetic_probe_results.json": "e4273a58bb7e50c97f331b6d5ae51a1c463d8d811f7bf188fddd34315cb8c9f3",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/synthetic_probe_results_final.json": "e4273a58bb7e50c97f331b6d5ae51a1c463d8d811f7bf188fddd34315cb8c9f3",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/test_mechanism.py": "9b43807bdac13ef2df3b06c8b4a58e0cd42d7284ed21ed7029e26b9cd9ffd18f"
+  }
+}

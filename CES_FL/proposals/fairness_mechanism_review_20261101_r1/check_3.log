@@ -1,0 +1,13 @@
+usage: audit_checkpoint.py [-h] --config CONFIG --out OUT
+                           [--device {cpu,cuda}]
+
+Read-only evidence audit of a pinned TRAIN/validation checkpoint. Never
+trains. Only aggregate results are exported. The shared threshold is taken
+unchanged from the checkpoint. Gain perturbations are diagnostics, not image
+corruptions.
+
+options:
+  -h, --help           show this help message and exit
+  --config CONFIG
+  --out OUT
+  --device {cpu,cuda}

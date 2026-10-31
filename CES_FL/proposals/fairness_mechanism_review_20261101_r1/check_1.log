@@ -1,0 +1,12 @@
+test_audit_end_to_end_checkpoint_hashes_and_read_only (test_mechanism.MechanismTests.test_audit_end_to_end_checkpoint_hashes_and_read_only) ... ok
+test_class_separation_does_not_get_aligned (test_mechanism.MechanismTests.test_class_separation_does_not_get_aligned) ... ok
+test_constructed_failure_and_gradients (test_mechanism.MechanismTests.test_constructed_failure_and_gradients) ... ok
+test_independent_numpy_reference_unequal_cell_sizes (test_mechanism.MechanismTests.test_independent_numpy_reference_unequal_cell_sizes) ... ok
+test_order_and_class_shift_invariance (test_mechanism.MechanismTests.test_order_and_class_shift_invariance) ... ok
+test_summary_and_frozen_threshold (test_mechanism.MechanismTests.test_summary_and_frozen_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 8.815s
+
+OK
+{"status": "AUDIT_COMPLETE", "n": 8, "out": "/private/var/folders/yb/8jhwh7cn235d199bqshp07680000gn/T/tmp_afu8ztt/audit", "training_started": false}

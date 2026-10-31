@@ -1,0 +1,19 @@
+{
+  "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R1_partial_bce/training/best.pt",
+  "checkpoint_sha256": "05bf73a544e7b513f6075ff3a70da0a75aeb16ddf70f55c4fff03a45a9e6e517",
+  "manifest": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/val.csv",
+  "manifest_sha256": "52f4844cffe5a03adb08cecde8829244bb50e05eeead36f6d659599f1c24f5b1",
+  "split": "val",
+  "axis": "gender_race",
+  "min_support": 20,
+  "batch_size": 16,
+  "workers": 0,
+  "seed": 17,
+  "kernel_sigma": 4.0,
+  "kernel_samples_per_cell": 64,
+  "gain_perturbations": [
+    -0.1,
+    0.0,
+    0.1
+  ]
+}

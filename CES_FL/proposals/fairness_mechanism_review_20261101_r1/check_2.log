@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "data": "constructed synthetic evidence, no faces or detector training",
+  "initial": {
+    "offset": 3.0,
+    "score_mmd2": 0.0,
+    "joint_mmd2": 0.4382974902071709,
+    "score_gradient": 0.0,
+    "joint_gradient": 0.07745837617783578,
+    "nominal_errors": {
+      "fpr": [
+        0.25,
+        0.25
+      ],
+      "fnr": [
+        0.25,
+        0.25
+      ],
+      "fpr_gap": 0.0,
+      "fnr_gap": 0.0
+    },
+    "perturbed_errors": {
+      "fpr": [
+        0.5,
+        0.0
+      ],
+      "fnr": [
+        0.0,
+        0.5
+      ],
+      "fpr_gap": 0.5,
+      "fnr_gap": 0.5
+    }
+  },
+  "after_toy_offset_optimization": {
+    "offset": 3.942219078283726e-05,
+    "joint_mmd2": 1.9035364950958922e-10,
+    "nominal_errors": {
+      "fpr": [
+        0.25,
+        0.25
+      ],
+      "fnr": [
+        0.25,
+        0.25
+      ],
+      "fpr_gap": 0.0,
+      "fnr_gap": 0.0
+    },
+    "perturbed_errors": {
+      "fpr": [
+        0.25,
+        0.25
+      ],
+      "fnr": [
+        0.25,
+        0.25
+      ],
+      "fpr_gap": 0.0,
+      "fnr_gap": 0.0
+    }
+  },
+  "marginal_vs_joint_example": {
+    "marginal_mmd2": [
+      0.0,
+      2.220446049250313e-16
+    ],
+    "joint_mmd2": 0.01380697790221408
+  },
+  "gradcheck": true,
+  "real_checkpoint_cancellation_verified": false,
+  "real_fairness_improvement_verified": false,
+  "novelty_established": false,
+  "limitations": [
+    "Toy nuisance offset is known and directly optimizable.",
+    "No proof that real corruptions act as branch gain changes.",
+    "Small empirical MMD does not certify threshold fairness.",
+    "Evidence decomposition may change under retraining/reparameterization."
+  ]
+}

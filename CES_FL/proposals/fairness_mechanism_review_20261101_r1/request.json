@@ -1,0 +1,46 @@
+{
+  "request_id": "fairness_mechanism_review_20261101_r1",
+  "state": "RESEARCH_AUDIT_ONLY_MODEL_TRAINING_HELD",
+  "base_code_git_commit": "faca053c46ab9c143acd0fb468c19ac27fa304f1",
+  "branch": "upgrade/class-conditional-alignment-20261101",
+  "latest_user_constraint": "Improve novelty from a fairness perspective before proceeding with model implementation/training.",
+  "hypothesis": "Class-conditional final-score parity can hide cancellation between global and local contributions; test whether the mechanism exists before adding joint alignment.",
+  "baseline_checkpoints": [
+    "R0_frozen_bce",
+    "R1_partial_bce",
+    "R2_partial_dro"
+  ],
+  "audit_configs": [
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R0_frozen_bce_audit.json",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R1_partial_bce_audit.json",
+    "CES_FL/proposals/fairness_mechanism_review_20261101_r1/R2_partial_dro_audit.json"
+  ],
+  "training_config": null,
+  "changed_model_settings": [],
+  "read_only": true,
+  "novelty_subjective_rating": {
+    "score_alignment_baseline": 3,
+    "joint_contribution_research_hypothesis": 5,
+    "scale_max": 10,
+    "established": false
+  },
+  "dependencies": [
+    "Existing pinned v0.3 checkpoints and original validation manifest/images",
+    "CPU compute or verified ngpus=1 allocation",
+    "aiface environment; no downloads"
+  ],
+  "required_checks": [
+    "Local synthetic probe and read-only Xception reload/inference tests",
+    "Cluster environment and CUDA smoke if GPU is used",
+    "Exact source/checkpoint/manifest hashes",
+    "Nominal validation AUC replay",
+    "Real cancellation/error association with uncertainty and composition controls before new training"
+  ],
+  "inference_only_configs_do_not_authorize_training": true,
+  "test_data_permitted": false,
+  "launch_decision_by": null,
+  "launch_git_commit": null,
+  "scheduler_job_id": null,
+  "real_audit_state": "NOT_RUN_LOCALLY_CLUSTER_INPUTS_UNAVAILABLE",
+  "output_root_pattern": "/home/sachin.chaudhary/ces_fl_pipeline/audits/fairness_mechanism_review_20261101_r1_<commit>_<timestamp>"
+}
