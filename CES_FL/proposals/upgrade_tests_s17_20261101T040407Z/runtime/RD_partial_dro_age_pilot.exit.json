@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "host": "gpu01",
+  "gpu_uuid": "GPU-2544ad3e-a8af-7b58-55e6-c24c57497b01",
+  "worker_pid": 392181,
+  "elapsed_seconds": 676.1849453039467,
+  "finished_at": 1793506807.4602742,
+  "execution_mode": "direct_ssh"
+}

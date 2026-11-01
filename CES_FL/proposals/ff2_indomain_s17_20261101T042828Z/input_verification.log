@@ -1,0 +1,4 @@
+SPLIT_PASS train 218266 {'1': 201489, '0': 16777}
+SPLIT_PASS val 31107 {'0': 2438, '1': 28669}
+SPLIT_PASS test 87564 {'1': 82123, '0': 5441}
+FF2_INPUT_VERIFICATION_PASS /home/sachin.chaudhary/ces_fl_pipeline/training_plans/ff2_indomain_s17_20261101T042828Z/INPUT_VERIFICATION.json

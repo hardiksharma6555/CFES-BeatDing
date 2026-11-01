@@ -1,0 +1,612 @@
+{
+  "observed_utc": "2026-11-01T03:55:26.411382+00:00",
+  "seed": 17,
+  "test_evaluated": false,
+  "arms": [
+    {
+      "arm": "R0_frozen_bce",
+      "epochs": 10,
+      "done": true,
+      "exit_code": 0,
+      "host": "gpu01",
+      "runtime_hours": 0.9900395235502057,
+      "best_epoch": 7,
+      "auc_percent": 98.19488709066874,
+      "overall_fpr_percent": 9.995112414467252,
+      "overall_fnr_percent": 4.794777871700949,
+      "axes": {
+        "gender": {
+          "worst_group_auc_percent": 96.98156197829792,
+          "fpr_gap_pp": 7.309607594982179,
+          "fnr_gap_pp": 3.184136597221239,
+          "ding_F_FPR_percent": 7.309607594982179,
+          "eligible_groups": [
+            "Female",
+            "Male"
+          ]
+        },
+        "race": {
+          "worst_group_auc_percent": 95.28104575163398,
+          "fpr_gap_pp": 6.368887851557943,
+          "fnr_gap_pp": 7.481553952142188,
+          "ding_F_FPR_percent": 9.791714058606887,
+          "eligible_groups": [
+            "Asian",
+            "Black",
+            "Others",
+            "White"
+          ]
+        },
+        "age_bin": {
+          "worst_group_auc_percent": 96.11772486772487,
+          "fpr_gap_pp": 14.394433572515764,
+          "fnr_gap_pp": 7.503717505971311,
+          "ding_F_FPR_percent": 17.653055977750693,
+          "eligible_groups": [
+            "30-44",
+            "45-59",
+            "60+",
+            "<30"
+          ]
+        },
+        "skin_bin": {
+          "worst_group_auc_percent": 97.50868650230248,
+          "fpr_gap_pp": 4.316058254762021,
+          "fnr_gap_pp": 4.4776055073439975,
+          "ding_F_FPR_percent": 5.195432013593269,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "gender_race": {
+          "worst_group_auc_percent": 94.85185185185185,
+          "fpr_gap_pp": 22.172284644194757,
+          "fnr_gap_pp": 13.58974358974359,
+          "ding_F_FPR_percent": 44.90914323360558,
+          "eligible_groups": [
+            "Female-Asian",
+            "Female-Black",
+            "Female-Others",
+            "Female-White",
+            "Male-Asian",
+            "Male-Black",
+            "Male-Others",
+            "Male-White"
+          ]
+        },
+        "ids8": {
+          "worst_group_auc_percent": 95.71109888263186,
+          "fpr_gap_pp": 28.26424658654239,
+          "fnr_gap_pp": 8.389954314609852,
+          "ding_F_FPR_percent": 39.41325386709199,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      },
+      "checkpoint_review": {
+        "status": "CHECKPOINT_RELOADED_HISTORY_SELECTION_AND_CALIBRATION_METADATA_MATCH",
+        "validation_forward_independently_replayed": false,
+        "selected_epoch": 7,
+        "best_checkpoint_sha256": "fbd276362ef31605b63a6dc3a14f52d57626ed48183a27bd8004ab6400d57b3a",
+        "last_checkpoint_sha256": "a3993e3234f150708f23319d8fddf4c9b90c2e527e76ab9cb315fa6b9811273c",
+        "calibration": {
+          "threshold_logit": -0.6314775943756102,
+          "rule": "validation_real_empirical_budget_v1",
+          "requested_fpr": 0.1,
+          "n_validation_real": 4092,
+          "allowed_fp": 409,
+          "achieved_fp": 409,
+          "achieved_fpr": 0.09995112414467253,
+          "test_fpr_guaranteed": false
+        },
+        "observed_utc": "2026-10-31T18:53:37.813755+00:00",
+        "note": "Strict reload and recorded validation-only selection/calibration checked; no independent validation replay or intervention-validity certification."
+      },
+      "training_images": 76139,
+      "validation_images": 25386,
+      "original_image_forwards_total": 761390,
+      "image_forwards_total": 761390,
+      "pair_draws_total": 0,
+      "best_checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R0_frozen_bce/training/best.pt",
+      "history": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R0_frozen_bce/training/history.jsonl",
+      "pair_sources_observed": 0,
+      "source_draws_min": 0,
+      "source_draws_max": 0
+    },
+    {
+      "arm": "R1_partial_bce",
+      "epochs": 10,
+      "done": true,
+      "exit_code": 0,
+      "host": "gpu02",
+      "runtime_hours": 1.3064449197638572,
+      "best_epoch": 1,
+      "auc_percent": 98.22147111228998,
+      "overall_fpr_percent": 9.995112414467252,
+      "overall_fnr_percent": 4.480135249366018,
+      "axes": {
+        "gender": {
+          "worst_group_auc_percent": 97.13842480141592,
+          "fpr_gap_pp": 7.113626594411046,
+          "fnr_gap_pp": 2.8931903671673034,
+          "ding_F_FPR_percent": 7.113626594411046,
+          "eligible_groups": [
+            "Female",
+            "Male"
+          ]
+        },
+        "race": {
+          "worst_group_auc_percent": 95.00326797385621,
+          "fpr_gap_pp": 7.185007974481658,
+          "fnr_gap_pp": 6.0168766051119,
+          "ding_F_FPR_percent": 12.41239829114253,
+          "eligible_groups": [
+            "Asian",
+            "Black",
+            "Others",
+            "White"
+          ]
+        },
+        "age_bin": {
+          "worst_group_auc_percent": 96.7063492063492,
+          "fpr_gap_pp": 11.024135681669927,
+          "fnr_gap_pp": 6.987471629912102,
+          "ding_F_FPR_percent": 14.725531887426785,
+          "eligible_groups": [
+            "30-44",
+            "45-59",
+            "60+",
+            "<30"
+          ]
+        },
+        "skin_bin": {
+          "worst_group_auc_percent": 97.42643944906976,
+          "fpr_gap_pp": 3.8144514626170314,
+          "fnr_gap_pp": 4.309048894518652,
+          "ding_F_FPR_percent": 5.997274396073168,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "gender_race": {
+          "worst_group_auc_percent": 94.33048433048434,
+          "fpr_gap_pp": 18.838951310861425,
+          "fnr_gap_pp": 11.538461538461538,
+          "ding_F_FPR_percent": 43.271313490535654,
+          "eligible_groups": [
+            "Female-Asian",
+            "Female-Black",
+            "Female-Others",
+            "Female-White",
+            "Male-Asian",
+            "Male-Black",
+            "Male-Others",
+            "Male-White"
+          ]
+        },
+        "ids8": {
+          "worst_group_auc_percent": 95.94410358473841,
+          "fpr_gap_pp": 24.29073665276756,
+          "fnr_gap_pp": 8.012098302243704,
+          "ding_F_FPR_percent": 34.50976388065184,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      },
+      "checkpoint_review": {
+        "status": "CHECKPOINT_RELOADED_HISTORY_SELECTION_AND_CALIBRATION_METADATA_MATCH",
+        "validation_forward_independently_replayed": false,
+        "selected_epoch": 1,
+        "best_checkpoint_sha256": "05bf73a544e7b513f6075ff3a70da0a75aeb16ddf70f55c4fff03a45a9e6e517",
+        "last_checkpoint_sha256": "4f5548834184b0d16710a028df2ce28b02554185c8aeda5e23e93c80c28e35cd",
+        "calibration": {
+          "threshold_logit": -1.7918734550476072,
+          "rule": "validation_real_empirical_budget_v1",
+          "requested_fpr": 0.1,
+          "n_validation_real": 4092,
+          "allowed_fp": 409,
+          "achieved_fp": 409,
+          "achieved_fpr": 0.09995112414467253,
+          "test_fpr_guaranteed": false
+        },
+        "observed_utc": "2026-10-31T19:12:17.148010+00:00",
+        "note": "Strict reload and recorded validation-only selection/calibration checked; no independent validation replay or intervention-validity certification."
+      },
+      "training_images": 76139,
+      "validation_images": 25386,
+      "original_image_forwards_total": 761390,
+      "image_forwards_total": 761390,
+      "pair_draws_total": 0,
+      "best_checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R1_partial_bce/training/best.pt",
+      "history": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R1_partial_bce/training/history.jsonl",
+      "pair_sources_observed": 0,
+      "source_draws_min": 0,
+      "source_draws_max": 0
+    },
+    {
+      "arm": "R2_partial_dro",
+      "epochs": 10,
+      "done": true,
+      "exit_code": 0,
+      "host": "gpu01",
+      "runtime_hours": 1.0109786174187643,
+      "best_epoch": 5,
+      "auc_percent": 98.23577304966885,
+      "overall_fpr_percent": 9.995112414467252,
+      "overall_fnr_percent": 4.649196956889265,
+      "axes": {
+        "gender": {
+          "worst_group_auc_percent": 97.17708593161115,
+          "fpr_gap_pp": 6.623674092983213,
+          "fnr_gap_pp": 3.0534481626219323,
+          "ding_F_FPR_percent": 6.623674092983213,
+          "eligible_groups": [
+            "Female",
+            "Male"
+          ]
+        },
+        "race": {
+          "worst_group_auc_percent": 94.31045751633987,
+          "fpr_gap_pp": 8.177830940988835,
+          "fnr_gap_pp": 6.466511760629408,
+          "ding_F_FPR_percent": 10.39267171590891,
+          "eligible_groups": [
+            "Asian",
+            "Black",
+            "Others",
+            "White"
+          ]
+        },
+        "age_bin": {
+          "worst_group_auc_percent": 97.24867724867725,
+          "fpr_gap_pp": 12.109886805421311,
+          "fnr_gap_pp": 7.467333889352237,
+          "ding_F_FPR_percent": 15.21046727114766,
+          "eligible_groups": [
+            "30-44",
+            "45-59",
+            "60+",
+            "<30"
+          ]
+        },
+        "skin_bin": {
+          "worst_group_auc_percent": 97.45651907181687,
+          "fpr_gap_pp": 4.1591514062673145,
+          "fnr_gap_pp": 4.152190722682376,
+          "ding_F_FPR_percent": 5.403384356694139,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "gender_race": {
+          "worst_group_auc_percent": 93.67236467236467,
+          "fpr_gap_pp": 22.172284644194757,
+          "fnr_gap_pp": 12.307692307692308,
+          "ding_F_FPR_percent": 45.64209550137591,
+          "eligible_groups": [
+            "Female-Asian",
+            "Female-Black",
+            "Female-Others",
+            "Female-White",
+            "Male-Asian",
+            "Male-Black",
+            "Male-Others",
+            "Male-White"
+          ]
+        },
+        "ids8": {
+          "worst_group_auc_percent": 95.95913747483368,
+          "fpr_gap_pp": 22.96623334150928,
+          "fnr_gap_pp": 8.499910602538888,
+          "ding_F_FPR_percent": 35.09690321922064,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      },
+      "checkpoint_review": {
+        "status": "CHECKPOINT_RELOADED_HISTORY_SELECTION_AND_CALIBRATION_METADATA_MATCH",
+        "validation_forward_independently_replayed": false,
+        "selected_epoch": 5,
+        "best_checkpoint_sha256": "297ba46139706034bff039ec877dcfb43abb47f8f63adbecc37f7828551bb937",
+        "last_checkpoint_sha256": "b7dd127e6d0531d6fcf2e0cd6cff26084c795b41ee95225d1f8b51ce07d9f611",
+        "calibration": {
+          "threshold_logit": -0.5353192687034606,
+          "rule": "validation_real_empirical_budget_v1",
+          "requested_fpr": 0.1,
+          "n_validation_real": 4092,
+          "allowed_fp": 409,
+          "achieved_fp": 409,
+          "achieved_fpr": 0.09995112414467253,
+          "test_fpr_guaranteed": false
+        },
+        "observed_utc": "2026-10-31T18:54:14.603020+00:00",
+        "note": "Strict reload and recorded validation-only selection/calibration checked; no independent validation replay or intervention-validity certification."
+      },
+      "training_images": 76139,
+      "validation_images": 25386,
+      "original_image_forwards_total": 761390,
+      "image_forwards_total": 761390,
+      "pair_draws_total": 0,
+      "best_checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R2_partial_dro/training/best.pt",
+      "history": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R2_partial_dro/training/history.jsonl",
+      "pair_sources_observed": 0,
+      "source_draws_min": 0,
+      "source_draws_max": 0
+    },
+    {
+      "arm": "RN_partial_dro_nochange_pilot",
+      "epochs": 10,
+      "done": true,
+      "exit_code": 0,
+      "host": "gpu02",
+      "runtime_hours": 1.769742636980696,
+      "best_epoch": 3,
+      "auc_percent": 97.52490295294265,
+      "overall_fpr_percent": 9.995112414467252,
+      "overall_fnr_percent": 4.667981591058514,
+      "axes": {
+        "gender": {
+          "worst_group_auc_percent": 96.11299713784287,
+          "fpr_gap_pp": 6.7216645932687795,
+          "fnr_gap_pp": 3.0169418196448397,
+          "ding_F_FPR_percent": 6.7216645932687795,
+          "eligible_groups": [
+            "Female",
+            "Male"
+          ]
+        },
+        "race": {
+          "worst_group_auc_percent": 94.73692810457517,
+          "fpr_gap_pp": 8.14194577352472,
+          "fnr_gap_pp": 4.227711874770699,
+          "ding_F_FPR_percent": 11.642589761133866,
+          "eligible_groups": [
+            "Asian",
+            "Black",
+            "Others",
+            "White"
+          ]
+        },
+        "age_bin": {
+          "worst_group_auc_percent": 96.3014677919793,
+          "fpr_gap_pp": 8.709753635328736,
+          "fnr_gap_pp": 6.435968145497592,
+          "ding_F_FPR_percent": 10.935466869994261,
+          "eligible_groups": [
+            "30-44",
+            "45-59",
+            "60+",
+            "<30"
+          ]
+        },
+        "skin_bin": {
+          "worst_group_auc_percent": 96.79283832314437,
+          "fpr_gap_pp": 4.441371537970042,
+          "fnr_gap_pp": 4.160739047067127,
+          "ding_F_FPR_percent": 5.526216456570429,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "gender_race": {
+          "worst_group_auc_percent": 91.807388334585,
+          "fpr_gap_pp": 18.838951310861425,
+          "fnr_gap_pp": 10.512820512820513,
+          "ding_F_FPR_percent": 42.66617380180035,
+          "eligible_groups": [
+            "Female-Asian",
+            "Female-Black",
+            "Female-Others",
+            "Female-White",
+            "Male-Asian",
+            "Male-Black",
+            "Male-Others",
+            "Male-White"
+          ]
+        },
+        "ids8": {
+          "worst_group_auc_percent": 95.06937831363413,
+          "fpr_gap_pp": 25.433564420031452,
+          "fnr_gap_pp": 7.803802372012634,
+          "ding_F_FPR_percent": 37.82650162513134,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      },
+      "checkpoint_review": {
+        "status": "CHECKPOINT_RELOADED_HISTORY_SELECTION_AND_CALIBRATION_METADATA_MATCH",
+        "validation_forward_independently_replayed": false,
+        "selected_epoch": 3,
+        "best_checkpoint_sha256": "e44d60463e2947e11acb02ac95badcd012fa4b8f03d38480ed4eec719da46703",
+        "last_checkpoint_sha256": "ea961de2f816490cfea54ee720f1cecd33c7d25c4da6163e186e713ee99402a1",
+        "calibration": {
+          "threshold_logit": -0.4320146441459655,
+          "rule": "validation_real_empirical_budget_v1",
+          "requested_fpr": 0.1,
+          "n_validation_real": 4092,
+          "allowed_fp": 409,
+          "achieved_fp": 409,
+          "achieved_fpr": 0.09995112414467253,
+          "test_fpr_guaranteed": false
+        },
+        "observed_utc": "2026-10-31T19:40:04.422205+00:00",
+        "note": "Strict reload and recorded validation-only selection/calibration checked; no independent validation replay or intervention-validity certification."
+      },
+      "training_images": 76139,
+      "validation_images": 25386,
+      "original_image_forwards_total": 761390,
+      "image_forwards_total": 1522830,
+      "pair_draws_total": 380720,
+      "best_checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RN_partial_dro_nochange_pilot/training/best.pt",
+      "history": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RN_partial_dro_nochange_pilot/training/history.jsonl",
+      "pair_sources_observed": 6,
+      "source_draws_min": 63130,
+      "source_draws_max": 63816
+    },
+    {
+      "arm": "RD_partial_dro_age_pilot",
+      "epochs": 10,
+      "done": true,
+      "exit_code": 0,
+      "host": "gpu01",
+      "runtime_hours": 2.7780252726583017,
+      "best_epoch": 5,
+      "auc_percent": 98.16178330446321,
+      "overall_fpr_percent": 9.995112414467252,
+      "overall_fnr_percent": 4.513008359162205,
+      "axes": {
+        "gender": {
+          "worst_group_auc_percent": 96.90264811084946,
+          "fpr_gap_pp": 6.819655093554346,
+          "fnr_gap_pp": 2.6412985430156772,
+          "ding_F_FPR_percent": 6.819655093554346,
+          "eligible_groups": [
+            "Female",
+            "Male"
+          ]
+        },
+        "race": {
+          "worst_group_auc_percent": 94.46895424836602,
+          "fpr_gap_pp": 9.808612440191386,
+          "fnr_gap_pp": 5.589254412783824,
+          "ding_F_FPR_percent": 13.242965410233415,
+          "eligible_groups": [
+            "Asian",
+            "Black",
+            "Others",
+            "White"
+          ]
+        },
+        "age_bin": {
+          "worst_group_auc_percent": 96.98412698412699,
+          "fpr_gap_pp": 12.24520480271495,
+          "fnr_gap_pp": 6.383444537114263,
+          "ding_F_FPR_percent": 14.758701119713313,
+          "eligible_groups": [
+            "30-44",
+            "45-59",
+            "60+",
+            "<30"
+          ]
+        },
+        "skin_bin": {
+          "worst_group_auc_percent": 97.63691100660463,
+          "fpr_gap_pp": 2.4352980287029897,
+          "fnr_gap_pp": 4.164898034961552,
+          "ding_F_FPR_percent": 3.580521078139716,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "gender_race": {
+          "worst_group_auc_percent": 93.88888888888889,
+          "fpr_gap_pp": 22.172284644194757,
+          "fnr_gap_pp": 11.794871794871794,
+          "ding_F_FPR_percent": 47.337935447662446,
+          "eligible_groups": [
+            "Female-Asian",
+            "Female-Black",
+            "Female-Others",
+            "Female-White",
+            "Male-Asian",
+            "Male-Black",
+            "Male-Others",
+            "Male-White"
+          ]
+        },
+        "ids8": {
+          "worst_group_auc_percent": 95.72988094806594,
+          "fpr_gap_pp": 19.243452429618728,
+          "fnr_gap_pp": 8.043983550867155,
+          "ding_F_FPR_percent": 30.756749858016047,
+          "eligible_groups": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      },
+      "checkpoint_review": {
+        "status": "CHECKPOINT_RELOADED_HISTORY_SELECTION_AND_CALIBRATION_METADATA_MATCH",
+        "validation_forward_independently_replayed": false,
+        "selected_epoch": 5,
+        "best_checkpoint_sha256": "a41b3a171730059cef45008791b8264f8c10561e78b4bbeac3e8599a4a96d6e0",
+        "last_checkpoint_sha256": "f556e4d55cce915d0953668edf765012b18ed40685add2e615eb608c5527d1d9",
+        "calibration": {
+          "threshold_logit": -0.8810529708862304,
+          "rule": "validation_real_empirical_budget_v1",
+          "requested_fpr": 0.1,
+          "n_validation_real": 4092,
+          "allowed_fp": 409,
+          "achieved_fp": 409,
+          "achieved_fpr": 0.09995112414467253,
+          "test_fpr_guaranteed": false
+        },
+        "observed_utc": "2026-10-31T20:40:29.464307+00:00",
+        "note": "Strict reload and recorded validation-only selection/calibration checked; no independent validation replay or intervention-validity certification."
+      },
+      "training_images": 76139,
+      "validation_images": 25386,
+      "original_image_forwards_total": 761390,
+      "image_forwards_total": 1522830,
+      "pair_draws_total": 380720,
+      "best_checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RD_partial_dro_age_pilot/training/best.pt",
+      "history": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RD_partial_dro_age_pilot/training/history.jsonl",
+      "pair_sources_observed": 6,
+      "source_draws_min": 63130,
+      "source_draws_max": 63816
+    }
+  ]
+}

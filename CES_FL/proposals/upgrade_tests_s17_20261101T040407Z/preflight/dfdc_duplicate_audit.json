@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "native_rows": 22857,
+  "unique_rows": 21381,
+  "exact_duplicate_excess": 1476,
+  "all_native_metadata_matches_locked_unique_index": true,
+  "row_multiplicity_will_be_preserved": true
+}

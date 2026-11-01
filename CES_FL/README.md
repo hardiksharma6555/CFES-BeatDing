@@ -2,11 +2,13 @@
 
 **Start here.** [Current timestamped status](STATUS.md) · [Review/change/run workflow](WORKFLOW.md) · [Prompt for a supervisor or another LLM](SUPERVISOR_PROMPT.md)
 
-## Running controlled upgrade — 31 October 2026
+## Completed controlled upgrade and separate FairForge-2 plan — 1 November 2026
 
-The five explicitly approved Xception arms R0/R1/R2/RN/RD are running through direct SSH on gpu01 and gpu02, following the latest user instruction. Both nodes passed eight CUDA software tests before launch; each arm repeats preflight/smoke. [Read current observations](status/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z_live.md) and the [exact execution receipt](proposals/upgrade_invariance_20261031_r1/execution_ssh_20261031T175009Z/README.md). Scientific source/configuration/input hashes remain pinned to the supplied fork commit 875bce025084871438ef799ca9086985c4375672; byte-identical source/configuration copies are now available in this main branch for review.
+The five approved Xception arms R0/R1/R2/RN/RD completed ten epochs each, with successful exits and verified checkpoint reloads. All 25 newly authorized frozen-checkpoint evaluations also completed across FF++, DFDC, Celeb-DF, DFD and public FairForge-2. Independent validation replay reproduced each selected checkpoint's recorded AUC exactly. [Results, fairness metrics and limitations](results/upgrade_tests_s17_20261101T040407Z/REPORT.md) · [Full aggregate metrics and confidence intervals](results/upgrade_tests_s17_20261101T040407Z/aggregate.json) · [Evaluation execution evidence](proposals/upgrade_tests_s17_20261101T040407Z/README.md).
 
-This uses bounded shared VRAM and no new PBS allocation. No existing training job was terminated. RN/RD remain six-source diagnostics, not expanded coverage. No test evaluation or fairness improvement is claimed. The source proposal and its original request/software-check receipts are historical; use the linked execution evidence for actual current state.
+Scientific model source remains pinned to 875bce025084871438ef799ca9086985c4375672. Execution used the authorized direct-SSH route, bounded shared VRAM and no new PBS allocation. Existing jobs were preserved. RN/RD remain six-source diagnostics; fairness outcomes are mixed and transfer performance is weak. No uniform fairness win or direct protocol equivalence with Ding is established.
+
+The separate [FairForge-2 public in-domain plan](proposals/ff2_indomain_s17_20261101T042828Z/README.md) preserves 218,266 TRAIN / 31,107 VAL / 87,564 TEST images. Membership and recorded-contributor overlap checks passed. A seed 17 original-image BCE pretraining configuration is prepared; no new FF2 training is running. Paired FF2 arms additionally need verified matched controls for eight reviewed sources. Age/skin labels remain automated proxies.
 
 ## Authorized benchmark batch — 31 October 2026
 
@@ -14,11 +16,11 @@ Five jobs were submitted under `benchmark_s17_20261031T112401`: Xception A/B/C e
 
 This authorized batch has a finite login-node observation/publication monitor, which stops on completion/failure or after24h and never launches extra work. It is separate from the general manual status helper. GPU/queue waits remain possible.
 
-## What is currently true
+## Historical original pilot
 
-The seed17 Xception P/A/B/C experiment completed. B (detection-pretrained encoder plus BCE) reached **98.1949% FF++ validation AUC**. C (the same encoder plus demographic invariance) reached **98.0661% validation AUC**. Fairness outcomes are mixed; a consistent fairness benefit has not been established. **These are not test results and do not establish a win over Ding.** C uses 36 reviewed Qwen variants of only six TRAIN originals and does not test forensic sensitivity.
+The seed 17 Xception P/A/B/C experiment completed. B (detection-pretrained encoder plus BCE) reached **98.1949% FF++ validation AUC**. C (the same encoder plus demographic invariance) reached **98.0661% validation AUC**. Fairness outcomes are mixed; a consistent fairness benefit has not been established. **These are not test results and do not establish a win over Ding.** C uses 36 reviewed Qwen variants of only six TRAIN originals and does not test forensic sensitivity.
 
-Current real-test Tables1–3 remain incomplete. Table3 additionally requires a current-method ResNet-50 experiment. FairForge-2 evaluation/training is a separate phase. The earlier preregistered CLIP CESel-MA gate remains FAIL; this exploratory branch does not change it.
+The paragraphs in this section describe the original P/A/B/C pilot. For the later five-arm upgrade, use the completed test report above. The separate benchmark batch has its own timestamped evidence; this update does not certify uninspected ResNet jobs. The earlier preregistered CLIP CESel-MA gate remains FAIL; this exploratory branch does not change it.
 
 ## Files to review
 

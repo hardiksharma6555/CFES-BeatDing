@@ -1,0 +1,10 @@
+test_changed_manifest_rejected (__main__.FrozenEvaluationTests.test_changed_manifest_rejected) ... ok
+test_native_duplicates_preserved_and_conflicts_rejected (__main__.FrozenEvaluationTests.test_native_duplicates_preserved_and_conflicts_rejected) ... ok
+test_real_checkpoint_inference_matches_exporter_and_freezes_threshold (__main__.FrozenEvaluationTests.test_real_checkpoint_inference_matches_exporter_and_freezes_threshold) ... /home/sachin.chaudhary/.conda/envs/aiface/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=368303) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 11.177s
+
+OK

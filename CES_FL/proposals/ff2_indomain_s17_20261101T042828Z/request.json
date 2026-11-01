@@ -1,0 +1,225 @@
+{
+  "id": "ff2_indomain_s17_20261101T042828Z",
+  "created_utc": "2026-11-01T04:28:28.827960+00:00",
+  "request": "Separate in-domain FairForge2 training/validation/test study, distinct from current FF++ to FF2 transfer tests.",
+  "dataset": "Existing frozen FairForge2 public split; no random reshuffle or internal/RFW data.",
+  "seed": 17,
+  "model_source": "/home/sachin.chaudhary/ces_fl_sources/upgrade_875bce025084871438ef799ca9086985c4375672",
+  "git_commit": "875bce025084871438ef799ca9086985c4375672",
+  "model_source_sha256": "0e001dd1251570ce43fb82bde307c519dea4045d9734506e1ce90d2ed014f8de",
+  "pretraining_template": "/home/sachin.chaudhary/ces_fl_pipeline/audits/encoder_controls_20261030T202634/full_experiment_runs/P_pretrain/config.json",
+  "template_sha256": "557e7bea31c40c122bc22a5dee4af818d6e2974ab840696e9d29ca465d269b1a",
+  "pretraining_config": "/home/sachin.chaudhary/ces_fl_pipeline/training_plans/ff2_indomain_s17_20261101T042828Z/P_ff2_bce_s17.json",
+  "config_sha256": "db0c886527635295f0394dddbca9da1a8a3c40807609ab78f324b75b382fbee8",
+  "changed_template_fields": {
+    "train": {
+      "from": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/train.csv",
+      "to": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/train.csv"
+    },
+    "val": {
+      "from": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/val.csv",
+      "to": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/val.csv"
+    },
+    "protocol_overlap_file": {
+      "from": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/protocol_source_overlap.json",
+      "to": null
+    }
+  },
+  "data": {
+    "observed_utc": "2026-11-01T04:05:19.511797+00:00",
+    "splits": {
+      "train": {
+        "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/train.csv",
+        "sha256": "4f83e7dc8042533329d7047fefd0f30cbd96f45d42bde2666dd0edc7d58f29cc",
+        "rows": 218266,
+        "unique_paths": 218266,
+        "labels": {
+          "1": 201489,
+          "0": 16777
+        },
+        "label_x_ids8": {
+          "1:7": 16408,
+          "1:5": 37421,
+          "1:3": 15516,
+          "1:1": 11388,
+          "1:6": 16695,
+          "1:0": 6545,
+          "1:4": 72307,
+          "1:2": 25209,
+          "0:7": 1520,
+          "0:5": 3222,
+          "0:1": 936,
+          "0:3": 1144,
+          "0:4": 5880,
+          "0:6": 1727,
+          "0:2": 1750,
+          "0:0": 598
+        },
+        "label_x_family": {
+          "1:ID-preserving gen.": 10742,
+          "1:Face swap": 50778,
+          "1:Restoration / SR": 46847,
+          "1:GAN": 6965,
+          "1:Text-to-image": 12436,
+          "1:Editing": 48690,
+          "1:Reenactment": 25031,
+          "0:real": 16777
+        },
+        "label_provenance_counts": {
+          "FF2 source gender/race; auto_if_age; auto_ita; FairFace ids8; not human ground truth": 218266
+        },
+        "missing_provenance": 0,
+        "public_release_membership_exact_match": true,
+        "stratified_images_decoded": 16,
+        "decoded_modes": {
+          "RGB": 16
+        },
+        "all_image_paths_checked": false
+      },
+      "val": {
+        "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/val.csv",
+        "sha256": "aeda051259d9e26b07c2810152b601ae115ce7c9e10523f99ea07bbc9f92afa8",
+        "rows": 31107,
+        "unique_paths": 31107,
+        "labels": {
+          "0": 2438,
+          "1": 28669
+        },
+        "label_x_ids8": {
+          "0:7": 246,
+          "0:5": 474,
+          "0:1": 128,
+          "0:3": 156,
+          "0:4": 885,
+          "0:6": 231,
+          "0:2": 253,
+          "0:0": 65,
+          "1:7": 2526,
+          "1:3": 2134,
+          "1:5": 5324,
+          "1:6": 2324,
+          "1:4": 10547,
+          "1:1": 1536,
+          "1:2": 3499,
+          "1:0": 779
+        },
+        "label_x_family": {
+          "0:real": 2438,
+          "1:ID-preserving gen.": 1452,
+          "1:Face swap": 7347,
+          "1:Restoration / SR": 6786,
+          "1:GAN": 960,
+          "1:Text-to-image": 1495,
+          "1:Editing": 6940,
+          "1:Reenactment": 3689
+        },
+        "label_provenance_counts": {
+          "FF2 source gender/race; auto_if_age; auto_ita; FairFace ids8; not human ground truth": 31107
+        },
+        "missing_provenance": 0,
+        "public_release_membership_exact_match": true,
+        "stratified_images_decoded": 16,
+        "decoded_modes": {
+          "RGB": 16
+        },
+        "all_image_paths_checked": false
+      },
+      "test": {
+        "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/test.csv",
+        "sha256": "dd5eb9ef070f658fe6b7f744c47f73e25ce7c53f948bc272f4f16c69a37d4099",
+        "rows": 87564,
+        "unique_paths": 87564,
+        "labels": {
+          "1": 82123,
+          "0": 5441
+        },
+        "label_x_ids8": {
+          "1:5": 14740,
+          "1:3": 6947,
+          "1:7": 7420,
+          "1:1": 5177,
+          "1:4": 27483,
+          "1:6": 6239,
+          "1:0": 2645,
+          "1:2": 11472,
+          "0:5": 1041,
+          "0:4": 1940,
+          "0:7": 494,
+          "0:3": 361,
+          "0:1": 296,
+          "0:2": 585,
+          "0:6": 526,
+          "0:0": 198
+        },
+        "label_x_family": {
+          "1:ID-preserving gen.": 4608,
+          "1:Face swap": 16815,
+          "1:Restoration / SR": 16455,
+          "1:GAN": 8805,
+          "1:Text-to-image": 11445,
+          "1:Editing": 15862,
+          "1:Reenactment": 8133,
+          "0:real": 5441
+        },
+        "label_provenance_counts": {
+          "FF2 source gender/race; auto_if_age; auto_ita; FairFace ids8; not human ground truth": 87564
+        },
+        "missing_provenance": 0,
+        "public_release_membership_exact_match": true,
+        "stratified_images_decoded": 16,
+        "decoded_modes": {
+          "RGB": 16
+        },
+        "all_image_paths_checked": false
+      }
+    },
+    "overlaps": {
+      "train:val": {
+        "images": 0,
+        "identity_ids": 0,
+        "source_ids": 0
+      },
+      "train:test": {
+        "images": 0,
+        "identity_ids": 0,
+        "source_ids": 0
+      },
+      "val:test": {
+        "images": 0,
+        "identity_ids": 0,
+        "source_ids": 0
+      }
+    },
+    "person_ground_truth_verified": false,
+    "new_training_launched": false,
+    "pairs": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/approved_pairs.csv",
+      "sha256": "ace2695bd4079f66808a6336e5a44ad220b5ff04381c16d18d3ecca1807d2380",
+      "rows": 16,
+      "original_sources": 8,
+      "all_originals_in_train": true,
+      "originals_in_val_or_test": 0,
+      "all_older_and_younger": true,
+      "attributes": {
+        "age": 16
+      },
+      "approval_status": {
+        "USER_VISUAL_APPROVAL_AUTOMATIC_THRESHOLDS_BYPASSED_20261030": 16
+      },
+      "approved_flags": {
+        "1": 16
+      },
+      "all_counterfactual_images_decoded": true,
+      "matched_control_manifest_verified": false
+    }
+  },
+  "initialization": "Existing ImageNet Xception weights only; fresh seed17 heads/gates/fusion; original FF2 TRAIN images only.",
+  "weights_sha256": "43020ad2812c333d9f8e202b9fef94e579d07addb6582d69a1f68bbaec21aa90",
+  "selection": "Validation AUC only; calibration from selected-checkpoint FF2 validation reals; no test-based tuning.",
+  "pretraining_objective": "BCE only; full encoder trainable and BN updates, identical to existing P template. No counterfactual images in this stage.",
+  "downstream_plan": "Bind R0/R1/R2 and paired RN/RD to the same selected FF2-pretrained encoder only after its actual checkpoint SHA exists. No fabricated placeholder hash or FF++ encoder substitution.",
+  "paired_arms_prerequisite": "8 reviewed TRAIN sources /16 age edits found; matching no-change/resize/control metadata must be validated before paired-arm launch. No new image generation authorized here.",
+  "label_limitations": "Age and skin labels are automated proxies, not human ground truth; human review remains necessary for strong demographic claims.",
+  "training_started": false,
+  "config_locked_before_current_FF2_transfer_results_viewed": true
+}

@@ -4,7 +4,9 @@
 
 **[Research updates and reviewer index](RESEARCH_UPDATES.md)** · [Current benchmark observations](CES_FL/status/benchmark_s17_20261031T112401_live.md) · [Verified FairForge-2 in-domain results](FAIRFORGE2_INDOMAIN_RESULTS_20261031.md)
 
-[Current controlled-upgrade training on gpu01/gpu02](CES_FL/status/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z_live.md) · [SSH execution evidence and exact running source](CES_FL/proposals/upgrade_invariance_20261031_r1/execution_ssh_20261031T175009Z/README.md)
+[Completed upgrade: validation, 25 test evaluations and limitations](CES_FL/results/upgrade_tests_s17_20261101T040407Z/REPORT.md) · [Separate FairForge-2 public in-domain split and prepared plan](CES_FL/proposals/ff2_indomain_s17_20261101T042828Z/README.md)
+
+As verified on 1 November 2026, all five upgrade arms completed ten epochs and all 25 authorized frozen-checkpoint evaluations completed. FairForge-2 in that evaluation batch measures FF++-trained transfer. The new FairForge-2 in-domain plan has its own verified public TRAIN/VAL/TEST manifests; training for that plan has not started. Read the report for mixed fairness findings, weak transfer performance and remaining control-validation requirements.
 
 This repository is public. Reviewers can read the same versioned code, configurations, aggregate results and progress records without cluster access. Check each status file's observation time. The current benchmark has an existing finite publication monitor; other updates are published after verified milestones.
 
@@ -12,7 +14,7 @@ This repository is public. Reviewers can read the same versioned code, configura
 
 **[Start with CES_FL/README.md](CES_FL/README.md)** · [Current observed status](CES_FL/STATUS.md) · [Supervisor prompt](CES_FL/SUPERVISOR_PROMPT.md) · [Review → push → cluster training workflow](CES_FL/WORKFLOW.md)
 
-The standalone CES-FL model, actual completed seed17 configurations, validation histories and verification receipts are versioned under `CES_FL/`. Use the dedicated benchmark observations linked above for that batch's evolving job states and test results; general status pages and handoffs are dated snapshots. Fairness findings remain exploratory. Read the recorded protocol and distinguish current CES-FL from the older archived methods before comparing results or proposing runs.
+The standalone CES-FL model, actual completed seed 17 configurations, validation histories and verification receipts are versioned under `CES_FL/`. Use the dedicated benchmark observations linked above for that batch's evolving job states and test results; general status pages and handoffs are dated snapshots. Fairness findings remain exploratory. Read the recorded protocol and distinguish current CES-FL from the older archived methods before comparing results or proposing runs.
 
 Historical comparison code plus selected aggregate progress/results; no binary checkpoints or raw images.
 The archived agent paths mirror parts of the cluster. The current CES-FL working directory is outside this checkout;

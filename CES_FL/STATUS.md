@@ -1,5 +1,13 @@
 # Current CES-FL status
 
+## Latest verified milestone — 1 November 2026
+
+All five controlled-upgrade arms completed ten epochs. All 25 authorized frozen-checkpoint test evaluations completed, with unchanged validation thresholds and exact validation-AUC replay. [Results and limitations](results/upgrade_tests_s17_20261101T040407Z/REPORT.md) · [Completed test observations](status/upgrade_tests_s17_20261101T040407Z_live.md).
+
+A separate [FairForge-2 public in-domain plan](proposals/ff2_indomain_s17_20261101T042828Z/README.md) is prepared with verified TRAIN/VAL/TEST manifests. No training for that new plan has started. FairForge-2 scores in the completed batch are FF++-trained transfer results. The older snapshot below is preserved and does not represent the current five-arm batch.
+
+## Preserved original pilot snapshot — 31 October 2026
+
 Last observed (UTC): **2026-10-31T06:11:36.029000+00:00**.
 
 Point-in-time observation. No monitoring daemon or automatic GitHub publication.

@@ -1,0 +1,89 @@
+{
+  "observed_utc": "2026-11-01T05:40:33.391498+00:00",
+  "matched_public_ding_result_found": false,
+  "new_training_launched": false,
+  "source_or_configuration_changed": false,
+  "current_gda_path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/code/Ding_mod/GDA.py",
+  "current_gda_sha256": "bef29fa69e46c729dc679356d0ac3904ebac6da4c00180350daf282fe94599db",
+  "prior_executed_gradient_probe_source_matches": true,
+  "prior_probe_environment": {
+    "torch": "2.10.0+cu128",
+    "geomloss": "0.3.1"
+  },
+  "gda_limitation": "Archived fair_loss is detached; prior exact-source probe produced identical head updates for lambda0,0.005,1000. No new gradient probe was run for this status check.",
+  "datasets": {
+    "fairforge2_full": {
+      "train": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_full/train.csv",
+        "rows": 502035,
+        "sha256": "53d37208984ea8f8e2aaa050eff1347a1e6e3682cf1fd72d5d12c5a6b0bfc827"
+      },
+      "realval": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_full/realval.csv",
+        "rows": 4933,
+        "sha256": "f223f93eb0063eb442228bd4b5999633a6acb768ffa5e8390c018c4b69d0639f"
+      },
+      "fakeval": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_full/fakeval.csv",
+        "rows": 70041,
+        "sha256": "3d9eb229cf7d92d1c8df4014ecc1216d8070fce4c2b251e7432b3f5e1a142466"
+      },
+      "test": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_full/test.csv",
+        "rows": 182884,
+        "sha256": "f335c9a802dfd813cb2bb8babd41fc02b10db9f78b9cefa991f8d64218828b65"
+      }
+    },
+    "fairforge2_public": {
+      "train": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_public/train.csv",
+        "rows": 218266,
+        "sha256": "e93a5f3adabeb728154a909e4431e04a4ab92e3e57d60ba5f477a800d2ebbc36"
+      },
+      "realval": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_public/realval.csv",
+        "rows": 2438,
+        "sha256": "cfc46ea7aa6f6b0607681336f49d0508eee05d46e3ed962bfbcdcd27061c7bec"
+      },
+      "fakeval": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_public/fakeval.csv",
+        "rows": 28669,
+        "sha256": "fb469f3811dafdbaf1de87addc2a6f593cf8f15dd56457164c1838046a2033d2"
+      },
+      "test": {
+        "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/data_ding_schema/fairforge2_public/test.csv",
+        "rows": 87564,
+        "sha256": "33bb1654f61c12a5e055e184d82a159d5137731970899bee4ae20812809283c5"
+      }
+    }
+  },
+  "historical_saved_score_recomputation": [
+    {
+      "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/scores/base_ff2_test.npz",
+      "rows": 182884,
+      "real": 10718,
+      "fake": 172166,
+      "auc_percent": 99.26192228191385,
+      "checkpoint": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/base/4.pth",
+      "training_data_evidence": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/run.log:1",
+      "split": "fairforge2_full, NOT public",
+      "model_inference_performed": false
+    },
+    {
+      "path": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/scores/ff2_test.npz",
+      "rows": 182884,
+      "real": 10718,
+      "fake": 172166,
+      "auc_percent": 99.35725369976633,
+      "checkpoint": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/XceptionDetector_prune2%_only_head/lr_1.0e-03_lambda_5.0e-03/4.pth",
+      "training_data_evidence": "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results/DING_ff2_s7/run.log:1",
+      "split": "fairforge2_full, NOT public",
+      "model_inference_performed": false
+    }
+  ],
+  "checked_result_directories": [
+    "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/DINGREPRO_LIN/results",
+    "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/CFES/runs_ff2id",
+    "/home/sachin.chaudhary/ICLR_2027/research/cvpr_readiness/r20261009/agents/CESEL_MA/runs_ff2public"
+  ]
+}

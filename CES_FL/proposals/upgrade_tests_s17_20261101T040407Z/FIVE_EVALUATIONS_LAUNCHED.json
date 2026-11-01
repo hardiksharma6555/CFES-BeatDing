@@ -1,0 +1,92 @@
+[
+  {
+    "worker_pid": 391865,
+    "host": "gpu01",
+    "stage": "R0_frozen_bce",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "gpu01",
+      "/home/sachin.chaudhary/.conda/envs/aiface/bin/python -c 'import subprocess,json,sys,pathlib,os; f=pathlib.Path('\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R0_frozen_bce.ssh.log'\"'\"').open('\"'\"'xb'\"'\"'); e=dict(os.environ); e['\"'\"'PATH'\"'\"']='\"'\"'/home/sachin.chaudhary/ces_fl_tools/git_cluster_20261031/bin:/opt/pbs/bin:/usr/bin:/bin:'\"'\"'+e.get('\"'\"'PATH'\"'\"','\"'\"''\"'\"'); e.pop('\"'\"'PBS_JOBID'\"'\"',None); child=subprocess.Popen([sys.executable,'\"'\"'-u'\"'\"','\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/gpu_eval_worker.py'\"'\"','\"'\"'--stage'\"'\"','\"'\"'R0_frozen_bce'\"'\"'],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True,env=e); print(json.dumps({'\"'\"'worker_pid'\"'\"':child.pid,'\"'\"'host'\"'\"':'\"'\"'gpu01'\"'\"','\"'\"'stage'\"'\"':'\"'\"'R0_frozen_bce'\"'\"'}))'"
+    ],
+    "log": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R0_frozen_bce.ssh.log",
+    "execution_mode": "direct_ssh_bounded_shared_gpu",
+    "pbs_allocation": null,
+    "submitted_utc": "2026-11-01T04:19:38.251258+00:00"
+  },
+  {
+    "worker_pid": 982090,
+    "host": "gpu02",
+    "stage": "R1_partial_bce",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "gpu02",
+      "/home/sachin.chaudhary/.conda/envs/aiface/bin/python -c 'import subprocess,json,sys,pathlib,os; f=pathlib.Path('\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R1_partial_bce.ssh.log'\"'\"').open('\"'\"'xb'\"'\"'); e=dict(os.environ); e['\"'\"'PATH'\"'\"']='\"'\"'/home/sachin.chaudhary/ces_fl_tools/git_cluster_20261031/bin:/opt/pbs/bin:/usr/bin:/bin:'\"'\"'+e.get('\"'\"'PATH'\"'\"','\"'\"''\"'\"'); e.pop('\"'\"'PBS_JOBID'\"'\"',None); child=subprocess.Popen([sys.executable,'\"'\"'-u'\"'\"','\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/gpu_eval_worker.py'\"'\"','\"'\"'--stage'\"'\"','\"'\"'R1_partial_bce'\"'\"'],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True,env=e); print(json.dumps({'\"'\"'worker_pid'\"'\"':child.pid,'\"'\"'host'\"'\"':'\"'\"'gpu02'\"'\"','\"'\"'stage'\"'\"':'\"'\"'R1_partial_bce'\"'\"'}))'"
+    ],
+    "log": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R1_partial_bce.ssh.log",
+    "execution_mode": "direct_ssh_bounded_shared_gpu",
+    "pbs_allocation": null,
+    "submitted_utc": "2026-11-01T04:19:38.561980+00:00"
+  },
+  {
+    "worker_pid": 391995,
+    "host": "gpu01",
+    "stage": "R2_partial_dro",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "gpu01",
+      "/home/sachin.chaudhary/.conda/envs/aiface/bin/python -c 'import subprocess,json,sys,pathlib,os; f=pathlib.Path('\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R2_partial_dro.ssh.log'\"'\"').open('\"'\"'xb'\"'\"'); e=dict(os.environ); e['\"'\"'PATH'\"'\"']='\"'\"'/home/sachin.chaudhary/ces_fl_tools/git_cluster_20261031/bin:/opt/pbs/bin:/usr/bin:/bin:'\"'\"'+e.get('\"'\"'PATH'\"'\"','\"'\"''\"'\"'); e.pop('\"'\"'PBS_JOBID'\"'\"',None); child=subprocess.Popen([sys.executable,'\"'\"'-u'\"'\"','\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/gpu_eval_worker.py'\"'\"','\"'\"'--stage'\"'\"','\"'\"'R2_partial_dro'\"'\"'],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True,env=e); print(json.dumps({'\"'\"'worker_pid'\"'\"':child.pid,'\"'\"'host'\"'\"':'\"'\"'gpu01'\"'\"','\"'\"'stage'\"'\"':'\"'\"'R2_partial_dro'\"'\"'}))'"
+    ],
+    "log": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/R2_partial_dro.ssh.log",
+    "execution_mode": "direct_ssh_bounded_shared_gpu",
+    "pbs_allocation": null,
+    "submitted_utc": "2026-11-01T04:19:38.907175+00:00"
+  },
+  {
+    "worker_pid": 982186,
+    "host": "gpu02",
+    "stage": "RN_partial_dro_nochange_pilot",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "gpu02",
+      "/home/sachin.chaudhary/.conda/envs/aiface/bin/python -c 'import subprocess,json,sys,pathlib,os; f=pathlib.Path('\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/RN_partial_dro_nochange_pilot.ssh.log'\"'\"').open('\"'\"'xb'\"'\"'); e=dict(os.environ); e['\"'\"'PATH'\"'\"']='\"'\"'/home/sachin.chaudhary/ces_fl_tools/git_cluster_20261031/bin:/opt/pbs/bin:/usr/bin:/bin:'\"'\"'+e.get('\"'\"'PATH'\"'\"','\"'\"''\"'\"'); e.pop('\"'\"'PBS_JOBID'\"'\"',None); child=subprocess.Popen([sys.executable,'\"'\"'-u'\"'\"','\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/gpu_eval_worker.py'\"'\"','\"'\"'--stage'\"'\"','\"'\"'RN_partial_dro_nochange_pilot'\"'\"'],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True,env=e); print(json.dumps({'\"'\"'worker_pid'\"'\"':child.pid,'\"'\"'host'\"'\"':'\"'\"'gpu02'\"'\"','\"'\"'stage'\"'\"':'\"'\"'RN_partial_dro_nochange_pilot'\"'\"'}))'"
+    ],
+    "log": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/RN_partial_dro_nochange_pilot.ssh.log",
+    "execution_mode": "direct_ssh_bounded_shared_gpu",
+    "pbs_allocation": null,
+    "submitted_utc": "2026-11-01T04:19:39.251164+00:00"
+  },
+  {
+    "worker_pid": 392181,
+    "host": "gpu01",
+    "stage": "RD_partial_dro_age_pilot",
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=10",
+      "gpu01",
+      "/home/sachin.chaudhary/.conda/envs/aiface/bin/python -c 'import subprocess,json,sys,pathlib,os; f=pathlib.Path('\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/RD_partial_dro_age_pilot.ssh.log'\"'\"').open('\"'\"'xb'\"'\"'); e=dict(os.environ); e['\"'\"'PATH'\"'\"']='\"'\"'/home/sachin.chaudhary/ces_fl_tools/git_cluster_20261031/bin:/opt/pbs/bin:/usr/bin:/bin:'\"'\"'+e.get('\"'\"'PATH'\"'\"','\"'\"''\"'\"'); e.pop('\"'\"'PBS_JOBID'\"'\"',None); child=subprocess.Popen([sys.executable,'\"'\"'-u'\"'\"','\"'\"'/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/gpu_eval_worker.py'\"'\"','\"'\"'--stage'\"'\"','\"'\"'RD_partial_dro_age_pilot'\"'\"'],stdout=f,stderr=subprocess.STDOUT,stdin=subprocess.DEVNULL,start_new_session=True,env=e); print(json.dumps({'\"'\"'worker_pid'\"'\"':child.pid,'\"'\"'host'\"'\"':'\"'\"'gpu01'\"'\"','\"'\"'stage'\"'\"':'\"'\"'RD_partial_dro_age_pilot'\"'\"'}))'"
+    ],
+    "log": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/logs/RD_partial_dro_age_pilot.ssh.log",
+    "execution_mode": "direct_ssh_bounded_shared_gpu",
+    "pbs_allocation": null,
+    "submitted_utc": "2026-11-01T04:19:39.577205+00:00"
+  }
+]

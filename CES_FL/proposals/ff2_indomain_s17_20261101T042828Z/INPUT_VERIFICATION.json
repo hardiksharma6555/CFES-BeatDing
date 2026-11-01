@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-11-01T04:42:40.500379+00:00",
+  "command": [
+    "/home/sachin.chaudhary/.conda/envs/aiface/bin/python",
+    "/home/sachin.chaudhary/ces_fl_pipeline/training_plans/ff2_indomain_s17_20261101T042828Z/verify_inputs.py"
+  ],
+  "splits": {
+    "train": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/train.csv",
+      "sha256": "4f83e7dc8042533329d7047fefd0f30cbd96f45d42bde2666dd0edc7d58f29cc",
+      "rows": 218266,
+      "labels": {
+        "1": 201489,
+        "0": 16777
+      },
+      "every_image_path_is_file": true,
+      "all_images_decoded": false
+    },
+    "val": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/val.csv",
+      "sha256": "aeda051259d9e26b07c2810152b601ae115ce7c9e10523f99ea07bbc9f92afa8",
+      "rows": 31107,
+      "labels": {
+        "0": 2438,
+        "1": 28669
+      },
+      "every_image_path_is_file": true,
+      "all_images_decoded": false
+    },
+    "test": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/test.csv",
+      "sha256": "dd5eb9ef070f658fe6b7f744c47f73e25ce7c53f948bc272f4f16c69a37d4099",
+      "rows": 87564,
+      "labels": {
+        "1": 82123,
+        "0": 5441
+      },
+      "every_image_path_is_file": true,
+      "all_images_decoded": false
+    }
+  },
+  "overlaps": {
+    "train:val": {
+      "image_paths": 0,
+      "recorded_identity_ids": 0,
+      "recorded_source_ids": 0
+    },
+    "train:test": {
+      "image_paths": 0,
+      "recorded_identity_ids": 0,
+      "recorded_source_ids": 0
+    },
+    "val:test": {
+      "image_paths": 0,
+      "recorded_identity_ids": 0,
+      "recorded_source_ids": 0
+    }
+  },
+  "pairs": {
+    "approved": 16,
+    "by_attribute": {
+      "age": 16
+    }
+  },
+  "config_sha256": "db0c886527635295f0394dddbca9da1a8a3c40807609ab78f324b75b382fbee8",
+  "source_sha256": "0e001dd1251570ce43fb82bde307c519dea4045d9734506e1ce90d2ed014f8de",
+  "weights_sha256": "43020ad2812c333d9f8e202b9fef94e579d07addb6582d69a1f68bbaec21aa90",
+  "training_started": false,
+  "counterfactual_semantic_validity_verified": false,
+  "true_person_independence_verified": false,
+  "elapsed_seconds": 185.4615421651397
+}

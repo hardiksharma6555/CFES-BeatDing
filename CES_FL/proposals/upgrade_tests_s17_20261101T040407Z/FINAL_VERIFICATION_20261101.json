@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-11-01T04:42:46.223256+00:00",
+  "evaluations_verified": 25,
+  "validation_auc_replays_exact": 5,
+  "worker_exits_zero": 5,
+  "checkpoint_bytes_rehashed_after_evaluation": true,
+  "new_training_launched": false,
+  "selected_checkpoints_or_thresholds_changed": false,
+  "fairforge2_role": "FF++-trained transfer evaluation; separate in-domain plan prepared, unlaunched",
+  "source_commit": "875bce025084871438ef799ca9086985c4375672",
+  "run_root": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z"
+}

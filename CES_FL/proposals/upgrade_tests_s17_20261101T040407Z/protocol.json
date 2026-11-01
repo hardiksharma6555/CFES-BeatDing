@@ -1,0 +1,295 @@
+{
+  "request_id": "upgrade_tests_s17_20261101T040407Z",
+  "created_utc": "2026-11-01T04:04:07.251854+00:00",
+  "authorization": "User on1November2026 explicitly requested test evaluation; all five selected checkpoints on existing locked test datasets. User also requested a separate in-domain FairForge2 split/study; that is distinct from this transfer evaluation.",
+  "source": "/home/sachin.chaudhary/ces_fl_sources/upgrade_875bce025084871438ef799ca9086985c4375672",
+  "source_commit": "875bce025084871438ef799ca9086985c4375672",
+  "source_sha256": {
+    "CES_FL/src/ces_fl_upgrade.py": "4d8413cbfd8f22c60be8405ee7686dff7745aed134edddecf21e809cf3082ff6",
+    "CES_FL/src/ces_fl_diagram_model_v021.py": "0e001dd1251570ce43fb82bde307c519dea4045d9734506e1ce90d2ed014f8de",
+    "CES_FL/experiments/benchmark_seed17/uncertainty.py": "a60d58435fe0b46ca9daf686c4bbaa3ab7ef94ce202fb83c04429d4a4f9024fc"
+  },
+  "training_root": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z",
+  "run_root": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z",
+  "seed": 17,
+  "arms": {
+    "R0_frozen_bce": {
+      "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R0_frozen_bce/training/best.pt",
+      "sha256": "fbd276362ef31605b63a6dc3a14f52d57626ed48183a27bd8004ab6400d57b3a",
+      "selected_epoch": 7,
+      "calibration": {
+        "threshold_logit": -0.6314775943756102,
+        "rule": "validation_real_empirical_budget_v1",
+        "requested_fpr": 0.1,
+        "n_validation_real": 4092,
+        "allowed_fp": 409,
+        "achieved_fp": 409,
+        "achieved_fpr": 0.09995112414467253,
+        "test_fpr_guaranteed": false
+      },
+      "config_path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R0_frozen_bce/training/config.json",
+      "config_sha256": "a69bd73ac4690d4ebe36ecd9971c4657598a73103ce71e037ffec05724ed6891"
+    },
+    "R1_partial_bce": {
+      "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R1_partial_bce/training/best.pt",
+      "sha256": "05bf73a544e7b513f6075ff3a70da0a75aeb16ddf70f55c4fff03a45a9e6e517",
+      "selected_epoch": 1,
+      "calibration": {
+        "threshold_logit": -1.7918734550476072,
+        "rule": "validation_real_empirical_budget_v1",
+        "requested_fpr": 0.1,
+        "n_validation_real": 4092,
+        "allowed_fp": 409,
+        "achieved_fp": 409,
+        "achieved_fpr": 0.09995112414467253,
+        "test_fpr_guaranteed": false
+      },
+      "config_path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R1_partial_bce/training/config.json",
+      "config_sha256": "e5236a5808f73dc72ce0f464aec19684e9faaccd3690c7436bfe1daf5b35a6e7"
+    },
+    "R2_partial_dro": {
+      "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R2_partial_dro/training/best.pt",
+      "sha256": "297ba46139706034bff039ec877dcfb43abb47f8f63adbecc37f7828551bb937",
+      "selected_epoch": 5,
+      "calibration": {
+        "threshold_logit": -0.5353192687034606,
+        "rule": "validation_real_empirical_budget_v1",
+        "requested_fpr": 0.1,
+        "n_validation_real": 4092,
+        "allowed_fp": 409,
+        "achieved_fp": 409,
+        "achieved_fpr": 0.09995112414467253,
+        "test_fpr_guaranteed": false
+      },
+      "config_path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/R2_partial_dro/training/config.json",
+      "config_sha256": "40a5414f5115ae2c7738c22abb1bae802c4aa83f2b557c320c9c0c1481439010"
+    },
+    "RN_partial_dro_nochange_pilot": {
+      "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RN_partial_dro_nochange_pilot/training/best.pt",
+      "sha256": "e44d60463e2947e11acb02ac95badcd012fa4b8f03d38480ed4eec719da46703",
+      "selected_epoch": 3,
+      "calibration": {
+        "threshold_logit": -0.4320146441459655,
+        "rule": "validation_real_empirical_budget_v1",
+        "requested_fpr": 0.1,
+        "n_validation_real": 4092,
+        "allowed_fp": 409,
+        "achieved_fp": 409,
+        "achieved_fpr": 0.09995112414467253,
+        "test_fpr_guaranteed": false
+      },
+      "config_path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RN_partial_dro_nochange_pilot/training/config.json",
+      "config_sha256": "d6cf86cfa5016ff5683868c745cb46ba42c48455b6456c0f45ad4893f45f7827"
+    },
+    "RD_partial_dro_age_pilot": {
+      "checkpoint": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RD_partial_dro_age_pilot/training/best.pt",
+      "sha256": "a41b3a171730059cef45008791b8264f8c10561e78b4bbeac3e8599a4a96d6e0",
+      "selected_epoch": 5,
+      "calibration": {
+        "threshold_logit": -0.8810529708862304,
+        "rule": "validation_real_empirical_budget_v1",
+        "requested_fpr": 0.1,
+        "n_validation_real": 4092,
+        "allowed_fp": 409,
+        "achieved_fp": 409,
+        "achieved_fpr": 0.09995112414467253,
+        "test_fpr_guaranteed": false
+      },
+      "config_path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_invariance_20261031_r1_ssh_bounded_20261031T175009Z/RD_partial_dro_age_pilot/training/config.json",
+      "config_sha256": "843ddd3dcd44fdd119db81fb342ad26b6404085269d8f3e9a002a35b02319e4c"
+    }
+  },
+  "manifests": {
+    "ffpp": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/test.csv",
+    "fairforge2": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/test.csv",
+    "dfdc": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/dfdc_test.csv",
+    "celebdf": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/celebdf_test.csv",
+    "dfd": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/dfd_test.csv"
+  },
+  "manifest_audit": {
+    "ffpp": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ding_ffpp/test.csv",
+      "sha256": "7c7a09d5ccab349b1670f357bf7b1498d58af4a6621e8b0469d8d0ea368ccbc0",
+      "rows": 25401,
+      "labels": {
+        "1": 20863,
+        "0": 4538
+      },
+      "unique_images": 25401,
+      "native_exact_duplicate_extra_rows": 0,
+      "duplicate_policy": "Preserve native row multiplicity in inference/metrics; never allow conflicting labels/groups or duplicate TRAIN rows",
+      "unique_validation_index": null,
+      "unique_validation_index_sha256": null,
+      "group_class_counts": {
+        "('1', 'Female-White')": 7968,
+        "('1', 'Female-Others')": 690,
+        "('1', 'Male-White')": 7528,
+        "('1', 'Male-Others')": 990,
+        "('1', 'Male-Asian')": 929,
+        "('1', 'Female-Asian')": 1768,
+        "('1', 'Male-Black')": 510,
+        "('1', 'Female-Black')": 480,
+        "('0', 'Female-White')": 1755,
+        "('0', 'Male-White')": 1589,
+        "('0', 'Female-Others')": 151,
+        "('0', 'Male-Asian')": 238,
+        "('0', 'Male-Others')": 181,
+        "('0', 'Male-Black')": 92,
+        "('0', 'Female-Black')": 118,
+        "('0', 'Female-Asian')": 414
+      },
+      "all_referenced_files_exist": true,
+      "decoded_stratified_samples": 32,
+      "all_images_decoded_before_run": false,
+      "person_or_donor_ground_truth_verified": false
+    },
+    "fairforge2": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/manifests/ff2/test.csv",
+      "sha256": "dd5eb9ef070f658fe6b7f744c47f73e25ce7c53f948bc272f4f16c69a37d4099",
+      "rows": 87564,
+      "labels": {
+        "1": 82123,
+        "0": 5441
+      },
+      "unique_images": 87564,
+      "native_exact_duplicate_extra_rows": 0,
+      "duplicate_policy": "Preserve native row multiplicity in inference/metrics; never allow conflicting labels/groups or duplicate TRAIN rows",
+      "unique_validation_index": null,
+      "unique_validation_index_sha256": null,
+      "group_class_counts": {
+        "('1', 'Female-Asian')": 8711,
+        "('1', 'Male-Asian')": 11573,
+        "('1', 'Female-Black')": 8392,
+        "('1', 'Male-Black')": 10261,
+        "('1', 'Female-White')": 9348,
+        "('1', 'Male-White')": 10654,
+        "('1', 'Female-Others')": 7961,
+        "('1', 'Male-Others')": 15223,
+        "('0', 'Female-Asian')": 449,
+        "('0', 'Male-Asian')": 722,
+        "('0', 'Female-Black')": 475,
+        "('0', 'Male-Black')": 585,
+        "('0', 'Female-White')": 567,
+        "('0', 'Male-White')": 612,
+        "('0', 'Female-Others')": 691,
+        "('0', 'Male-Others')": 1340
+      },
+      "all_referenced_files_exist": true,
+      "decoded_stratified_samples": 32,
+      "all_images_decoded_before_run": false,
+      "person_or_donor_ground_truth_verified": false
+    },
+    "dfdc": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/dfdc_test.csv",
+      "sha256": "30a5c96a5a8ed06495276050543e3391bd5791281e54c08559f0118bef568c1f",
+      "rows": 22857,
+      "labels": {
+        "0": 14699,
+        "1": 8158
+      },
+      "unique_images": 21381,
+      "native_exact_duplicate_extra_rows": 1476,
+      "duplicate_policy": "Preserve native row multiplicity in inference/metrics; never allow conflicting labels/groups or duplicate TRAIN rows",
+      "unique_validation_index": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/dfdc_test_unique_validation_index.csv",
+      "unique_validation_index_sha256": "bc3df04c0b64e37dec50148291732bd0b0844315a6d87d77e1a8a778f3a27b2c",
+      "group_class_counts": {
+        "('0', 'Male-White')": 4190,
+        "('0', 'Male-Asian')": 458,
+        "('0', 'Male-Black')": 2008,
+        "('0', 'Female-Black')": 2100,
+        "('0', 'Female-Others')": 705,
+        "('0', 'Male-Others')": 1244,
+        "('0', 'Female-White')": 3366,
+        "('0', 'Female-Asian')": 628,
+        "('1', 'Male-White')": 2270,
+        "('1', 'Female-Black')": 1285,
+        "('1', 'Female-White')": 3075,
+        "('1', 'Female-Others')": 497,
+        "('1', 'Male-Black')": 507,
+        "('1', 'Male-Others')": 404,
+        "('1', 'Male-Asian')": 90,
+        "('1', 'Female-Asian')": 30
+      },
+      "all_referenced_files_exist": true,
+      "decoded_stratified_samples": 32,
+      "all_images_decoded_before_run": false,
+      "person_or_donor_ground_truth_verified": false
+    },
+    "celebdf": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/celebdf_test.csv",
+      "sha256": "5b4c9b3af2589b90e6e3fe9825857eacac9d4c2517f3226feb80fa7d4e0f4873",
+      "rows": 28458,
+      "labels": {
+        "0": 5713,
+        "1": 22745
+      },
+      "unique_images": 28458,
+      "native_exact_duplicate_extra_rows": 0,
+      "duplicate_policy": "Preserve native row multiplicity in inference/metrics; never allow conflicting labels/groups or duplicate TRAIN rows",
+      "unique_validation_index": null,
+      "unique_validation_index_sha256": null,
+      "group_class_counts": {
+        "('0', 'Male-Others')": 60,
+        "('0', 'Male-White')": 924,
+        "('0', 'Female-White')": 3929,
+        "('0', 'Female-Others')": 90,
+        "('1', 'Female-White')": 21503,
+        "('1', 'Female-Others')": 30,
+        "('1', 'Male-Black')": 1212,
+        "('0', 'Male-Black')": 710
+      },
+      "all_referenced_files_exist": true,
+      "decoded_stratified_samples": 16,
+      "all_images_decoded_before_run": false,
+      "person_or_donor_ground_truth_verified": false
+    },
+    "dfd": {
+      "path": "/home/sachin.chaudhary/ces_fl_pipeline/experiments/benchmark_s17_20261031T112401/manifests/dfd_test.csv",
+      "sha256": "a9d89cb3838b72b36c8eaf55c0ae12c165a38ead50d2e18fc1969245a9533e79",
+      "rows": 9385,
+      "labels": {
+        "1": 6293,
+        "0": 3092
+      },
+      "unique_images": 9385,
+      "native_exact_duplicate_extra_rows": 0,
+      "duplicate_policy": "Preserve native row multiplicity in inference/metrics; never allow conflicting labels/groups or duplicate TRAIN rows",
+      "unique_validation_index": null,
+      "unique_validation_index_sha256": null,
+      "group_class_counts": {
+        "('1', 'Male-White')": 2181,
+        "('1', 'Male-Others')": 89,
+        "('1', 'Female-White')": 2578,
+        "('1', 'Male-Black')": 494,
+        "('1', 'Female-Others')": 685,
+        "('1', 'Female-Black')": 266,
+        "('0', 'Female-White')": 1549,
+        "('0', 'Male-Black')": 682,
+        "('0', 'Male-White')": 773,
+        "('0', 'Female-Black')": 88
+      },
+      "all_referenced_files_exist": true,
+      "decoded_stratified_samples": 20,
+      "all_images_decoded_before_run": false,
+      "person_or_donor_ground_truth_verified": false
+    }
+  },
+  "bootstrap": {
+    "replicates": 1000,
+    "seed": 17,
+    "unit": "Connected components of recorded source contributors; unknown donors/person identity disclosed; fewer than2 components yields no CI"
+  },
+  "dataset_order": [
+    "ffpp",
+    "dfdc",
+    "celebdf",
+    "dfd",
+    "fairforge2"
+  ],
+  "fixed_threshold_policy": "Stored selected-checkpoint validation-real threshold, plus a separate fixed-logit0 report; never calibrate/select/update on test.",
+  "fairforge2_role": "FF++-trained transfer evaluation; separate FF2 in-domain study will use its existing public TRAIN/VAL/TEST.",
+  "execution_mode": "User-authorized direct SSH on gpu01/gpu02; bounded sharing; no PBS allocation claimed.",
+  "cuda_allocator_fraction": 0.1,
+  "minimum_free_mib": 24576,
+  "no_training": true
+}

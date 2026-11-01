@@ -1,0 +1,32 @@
+{
+  "state": "BOUND",
+  "host": "gpu01",
+  "gpu_uuid": "GPU-9b669a06-9156-a98e-2194-36f2fc11d7ca",
+  "physical_index": 4,
+  "free_mib_before_launch": 59316,
+  "execution_mode": "direct_ssh_bounded_shared_gpu",
+  "pbs_allocation": null,
+  "cuda_allocator_fraction": 0.1,
+  "preexisting_compute_processes": 1,
+  "allocator_policy_sha256": "85a7fa7a08fe4b02a85f11236d34189dc63b43305b538f26db7a302e8ec2a048",
+  "worker_pid": 391995,
+  "time": 1793506131.1250155,
+  "source_commit": "875bce025084871438ef799ca9086985c4375672",
+  "config_sha256": "40a5414f5115ae2c7738c22abb1bae802c4aa83f2b557c320c9c0c1481439010",
+  "operation": "frozen_test_inference_only",
+  "evaluation_protocol_sha256": "8541a40413f278d34bd26630cec3446def3fc6f2b9fdf76a825859efe1d233fe",
+  "evaluation_driver_sha256": "9911763c116d4b4ffaf13efa4422097d2464dbdbdcf492e2fca098541c5a9707",
+  "launcher_pid": 392155,
+  "command": [
+    "/home/sachin.chaudhary/.conda/envs/aiface/bin/python",
+    "-u",
+    "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/evaluate_frozen.py",
+    "--protocol",
+    "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/protocol.json",
+    "--arm",
+    "R2_partial_dro",
+    "--device",
+    "cuda"
+  ],
+  "stage": "R2_partial_dro"
+}

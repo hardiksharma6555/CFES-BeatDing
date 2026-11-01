@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-01T04:19:37.844064+00:00",
+  "cpu_tests": 3,
+  "cuda_nodes": [
+    {
+      "host": "gpu01",
+      "tests": 3,
+      "exit_code": 0,
+      "receipt": {
+        "exit_code": 0,
+        "host": "gpu01",
+        "gpu_uuid": "GPU-9b669a06-9156-a98e-2194-36f2fc11d7ca",
+        "worker_pid": 367891,
+        "elapsed_seconds": 19.661864206194878,
+        "finished_at": 1793506015.296866,
+        "execution_mode": "direct_ssh"
+      },
+      "log_sha256": "49bda233cf3fdaa6b9b1148907eb9fb6594f22ba9e6c2ebc17d222066f4f0cc6"
+    },
+    {
+      "host": "gpu02",
+      "tests": 3,
+      "exit_code": 0,
+      "receipt": {
+        "exit_code": 0,
+        "host": "gpu02",
+        "gpu_uuid": "GPU-3a2f4cf3-9b32-14c9-3deb-29e55d1123bb",
+        "worker_pid": 954433,
+        "elapsed_seconds": 19.522770904004574,
+        "finished_at": 1793506015.347573,
+        "execution_mode": "direct_ssh"
+      },
+      "log_sha256": "54fffcf4d4c7f0a0be8a0fc8e99a587cc155fe1c2f76ffad2ef3fc3720f455da"
+    }
+  ],
+  "no_training_performed": true,
+  "scope": "Synthetic-fixture inference only, comparison with official exporter, exact native duplicate preservation and frozen threshold under changed fixture labels"
+}

@@ -1,0 +1,11 @@
+{
+  "pid": 709332,
+  "command": [
+    "/home/sachin.chaudhary/.conda/envs/aiface/bin/python",
+    "-u",
+    "/home/sachin.chaudhary/ces_fl_pipeline/experiments/upgrade_tests_s17_20261101T040407Z/runtime/observe_evaluation.py"
+  ],
+  "started_utc": "2026-11-01T04:35:46.856229+00:00",
+  "read_only": true,
+  "max_hours": 24
+}
