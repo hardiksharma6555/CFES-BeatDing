@@ -1,0 +1,51 @@
+PASS full_epoch_no_replacement_singleton_tail_and_independent_paired_loss_reference
+{"source_count": 4, "generated_outputs": 28, "auto_approval": false}
+GENERATED_OR_VERIFIED bcf306f05efda1ce07fbe0b7 7
+GENERATED_OR_VERIFIED 00407ab19536527070d45daa 7
+{"new_generated_outputs": 14, "new_generation_seconds": 0.020545125007629395, "seconds_per_new_output": 0.0014675089291163854, "selected_sources": 2, "planned_total_outputs": 28, "approvals_created": 0, "training_started": false}
+GENERATED_OR_VERIFIED 037d2ecf956ca9b0881510e5 7
+GENERATED_OR_VERIFIED 495bda5d8624b5285c9d9e7b 7
+{"new_generated_outputs": 14, "new_generation_seconds": 0.015635961026418954, "seconds_per_new_output": 0.0011168543590299254, "selected_sources": 2, "planned_total_outputs": 28, "approvals_created": 0, "training_started": false}
+GENERATED_OR_VERIFIED bcf306f05efda1ce07fbe0b7 7
+GENERATED_OR_VERIFIED 00407ab19536527070d45daa 7
+{"new_generated_outputs": 0, "new_generation_seconds": 0.0, "seconds_per_new_output": null, "selected_sources": 2, "planned_total_outputs": 28, "approvals_created": 0, "training_started": false}
+PASS independent_original_generation_shards_resume_shared_source_seed_and_no_auto_approval
+PASS reject_missing_per_source_attributes_wrong_original_chained_edit_and_invalid_review
+PASS every_original_gets_its_own_edit_all_attributes_and_directions_rotate
+{"stage": "pretrain", "epoch": 1, "val_auc": 0.5, "pairs": 0, "sources": 4}
+PASS pretraining_transfer_identical_heads_full_trainability_frozen_downstream_bn_and_224px_ebox
+{"stage": "cf", "epoch": 1, "val_auc": 0.25, "pairs": 4, "sources": 4}
+{"stage": "cf", "epoch": 2, "val_auc": 0.0, "pairs": 4, "sources": 4}
+{"stage": "cf", "epoch": 2, "val_auc": 0.0, "pairs": 4, "sources": 4}
+{"stage": "bce", "epoch": 1, "val_auc": 0.75, "pairs": 0, "sources": 4}
+{"stage": "bce", "epoch": 2, "val_auc": 0.75, "pairs": 0, "sources": 4}
+{"stage": "nochange", "epoch": 1, "val_auc": 0.5, "pairs": 4, "sources": 4}
+{"stage": "nochange", "epoch": 2, "val_auc": 1.0, "pairs": 4, "sources": 4}
+PASS all_three_training_arms_full_exposure_independent_replay_and_exact_resume
+PASS frozen_test_threshold_label_flip_rejection_of_val_as_test_and_evidence_export
+{
+  "status": "PASS",
+  "device": "cpu",
+  "checks": [
+    "full_epoch_no_replacement_singleton_tail_and_independent_paired_loss_reference",
+    "independent_original_generation_shards_resume_shared_source_seed_and_no_auto_approval",
+    "reject_missing_per_source_attributes_wrong_original_chained_edit_and_invalid_review",
+    "every_original_gets_its_own_edit_all_attributes_and_directions_rotate",
+    "pretraining_transfer_identical_heads_full_trainability_frozen_downstream_bn_and_224px_ebox",
+    "all_three_training_arms_full_exposure_independent_replay_and_exact_resume",
+    "frozen_test_threshold_label_flip_rejection_of_val_as_test_and_evidence_export"
+  ],
+  "check_count": 7,
+  "parameters": {
+    "total": 21594159,
+    "trainable": 21594159
+  },
+  "source_sha256": "3e75192a4261eceda122ccd0c616b82928a25e05bc5173b2f728265b37d811ab",
+  "torch": "2.15.0",
+  "python": "3.12.8",
+  "synthetic_fixture_only": true,
+  "real_qwen_generation_tested": false,
+  "real_training_tested": false,
+  "cuda_tested": false,
+  "fairness_improvement_verified": false
+}

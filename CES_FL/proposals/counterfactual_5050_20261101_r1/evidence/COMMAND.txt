@@ -1,0 +1,2 @@
+/tmp/cesfl_upgrade_env/bin/python CES_FL/src/ces_fl_counterfactual_5050.py smoke --device cpu --out /tmp/cesfl_cf5050_cpu_r2
+Synthetic software fixture only. No real Qwen generation, CUDA test, or real training.

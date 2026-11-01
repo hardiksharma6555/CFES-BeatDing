@@ -1,0 +1,52 @@
+Operate only from the exact published commit supplied in the handoff. This package contains TWO DISTINCT TRACKS:
+
+A. FairForge-2 comparison: read CES_FL/proposals/ff2_supervisor_review_20261101_r1/REVIEW.md. Its full-comparison verdict is DO NOT RUN. Do not launch the old P_ff2 config as a complete approved comparison, and do not relabel FF++ configs as FF2. Close the recorded baseline, score-adapter, controls and uncertainty blockers in a NEW proposal/branch, preserving old results/preregistration. Publish exact configurations and passing evidence before launching that comparison. The fixes are recommendations, not implemented FF2 code in this commit.
+
+B. Separate FF++ full-coverage counterfactual experiment: CES_FL/src/ces_fl_counterfactual_5050.py, request/config/README in this directory. This code is implemented and seven synthetic CPU checks passed. No real Qwen, CUDA, real-data dry-run or training result is certified yet. Execute the gated sequence below on an allocated GPU. Do not start any earlier MMD/fair-evidence proposal merely because it is also in branch history.
+
+Read CES_FL/AGENTS.md, WORKFLOW.md, this proposal README, request.json and protocol_config.json. Confirm exact commit and SHA256 against evidence/CPU_SMOKE_RESULT.json. Use a new detached worktree and new output root; never pull over active-job sources, overwrite results, fabricate approval or change split/selection. Preserve all failure records. The Python executable is /home/sachin.chaudhary/.conda/envs/aiface/bin/python unless a separately recorded environment is required. Verify actual ngpus=1 allocation, device binding and available RAM/VRAM. Run long operations inside that allocation, not the login node. Record commit, environment versions, job ID, device, commands and all input hashes.
+
+Set these shell variables in the immutable checkout:
+  CES_PY=/home/sachin.chaudhary/.conda/envs/aiface/bin/python
+  CES_SCRIPT="$PWD/CES_FL/src/ces_fl_counterfactual_5050.py"
+  CES_CONFIG="$PWD/CES_FL/proposals/counterfactual_5050_20261101_r1/protocol_config.json"
+  CES_RUN="/home/sachin.chaudhary/ces_fl_runs/cf5050_$(date -u +%Y%m%dT%H%M%SZ)"
+  mkdir -p "$CES_RUN"
+Record CES_RUN and reuse it across separate allocated stages. Commands below are separate milestones; do not concatenate into an unattended run-all job.
+
+1. CUDA software smoke and real-input preflight (stop on any failure):
+  "$CES_PY" "$CES_SCRIPT" smoke --device cuda --out "$CES_RUN/smoke_cuda"
+  "$CES_PY" "$CES_SCRIPT" plan --config "$CES_CONFIG" --out "$CES_RUN/generation"
+  "$CES_PY" "$CES_SCRIPT" dry-run --config "$CES_CONFIG" --stage pretrain --device cuda --out "$CES_RUN/dry_pretrain"
+The plan verifies all source image bytes and pinned input hashes; it creates no edits. Confirm the manifests really are the prescribed FF++ split. Report discrepancies rather than editing hashes to pass. The dry-run checks one configured batch's backward pass without an optimizer step; it is not a full-data performance test.
+
+2. Real generator pilot, independent originals and matched control:
+  "$CES_PY" "$CES_SCRIPT" generate --plan "$CES_RUN/generation" --max-sources 2
+  "$CES_PY" "$CES_SCRIPT" review-template --plan "$CES_RUN/generation" --out "$CES_RUN/pilot_review.csv"
+Inspect all generated variants with their original; record actual identity, target edit, forensic preservation and unrelated-change evidence. Generation stubs in CPU tests do not certify Qwen. Record local model snapshot provenance/hash inventory, installed diffusers/transformers versions, elapsed time, VRAM and storage. Project full workload from measured throughput: planned 76139 originals ×7 =532973 diffusion outputs, plus geometric controls. Do not claim this is free/fast or approve candidates from prompt text alone. If pilot validity fails or resources cannot support the workload, stop and report; do not silently lower coverage. Keep pilot review distinct from the final full-bank review.
+
+3. After CUDA/input/pilot/resource checks pass, execute the existing requested FF++ study milestones:
+  "$CES_PY" "$CES_SCRIPT" train --config "$CES_CONFIG" --stage pretrain --device cuda --out "$CES_RUN/P"
+  "$CES_PY" "$CES_SCRIPT" generate --plan "$CES_RUN/generation"
+These are separate GPU workloads; schedule appropriately. Generation resumes recorded pilot outputs. Sharding is supported with --shard-index and --num-shards; explicitly record a fixed assignment and avoid concurrent writers of the same source. The default commands are single-worker. P completes 50 epochs and performs independent validation replay. No downstream stage starts before bank review. Epoch-boundary training resume uses identical source/config/output plus --resume; investigate partial history/checkpoint errors rather than deleting them.
+
+4. Full review and coverage (requires real reviewed decisions, no automatic all-approve):
+  "$CES_PY" "$CES_SCRIPT" review-template --plan "$CES_RUN/generation" --out "$CES_RUN/full_review_pending.csv"
+Have qualified reviewers save completed decisions/evidence to "$CES_RUN/full_review_completed.csv". Require one approved age, gender-presentation and skin-tone variant AND one approved no-change control for EVERY TRAIN original. Both directions need not pass. Preserve rejections and failures. Appearance review alone does not demonstrate preserved manipulation evidence; document that limitation and obtain substantive validation. Missing coverage blocks training. Do not fill review booleans programmatically just to unblock it.
+  "$CES_PY" "$CES_SCRIPT" audit-coverage --config "$CES_CONFIG" --plan "$CES_RUN/generation" --review "$CES_RUN/full_review_completed.csv" --out "$CES_RUN/coverage"
+  "$CES_PY" "$CES_SCRIPT" bind --config "$CES_CONFIG" --plan "$CES_RUN/generation" --review "$CES_RUN/full_review_completed.csv" --pretrain-run "$CES_RUN/P" --out "$CES_RUN/bound"
+Publish aggregate coverage evidence plus exact bound configuration/checkpoint/bank hashes; exclude face images, credentials, weights and private per-image review records. Verify no synthetic fixture enters production.
+
+5. Matched downstream arms, after binding and real dry runs PASS:
+  CES_BOUND="$CES_RUN/bound/bound_config.json"
+  "$CES_PY" "$CES_SCRIPT" dry-run --config "$CES_BOUND" --stage bce --device cuda --out "$CES_RUN/dry_B"
+  "$CES_PY" "$CES_SCRIPT" dry-run --config "$CES_BOUND" --stage nochange --device cuda --out "$CES_RUN/dry_N"
+  "$CES_PY" "$CES_SCRIPT" dry-run --config "$CES_BOUND" --stage cf --device cuda --out "$CES_RUN/dry_C"
+  "$CES_PY" "$CES_SCRIPT" train --config "$CES_BOUND" --stage bce --device cuda --out "$CES_RUN/B"
+  "$CES_PY" "$CES_SCRIPT" train --config "$CES_BOUND" --stage nochange --device cuda --out "$CES_RUN/N"
+  "$CES_PY" "$CES_SCRIPT" train --config "$CES_BOUND" --stage cf --device cuda --out "$CES_RUN/C"
+Each downstream arm is 50 epochs after shared 50-epoch P: 200 epochs total across this controlled study. All arms share P's validation-selected encoder, fresh head seed and original order. Each C source uses its own reviewed edit, rotating attributes across epochs; no separate six-person anchor pool. Check reported unique coverage and exposures. BCE and paired arms have matched optimizer steps but different forward compute. No Group-DRO, joint MMD or forensic-sensitivity objective is silently included here.
+
+6. Publish actual evidence after each milestone: commands, hashes, CUDA/pilot/coverage results, launch time/job/allocation, epoch progress, selected checkpoint/epoch, validation calibration, subgroup support and RUN_VERIFIED.json. Failure/pending is not completion. Publish from a separate evidence branch/worktree so runtime source stays immutable. No unattended monitor is installed. Keep validation distinct from test. Do not automatically evaluate test in this sequence: first freeze all arms, table definitions, group eligibility and a compatible paired-component/per-group uncertainty evaluator. The standalone evaluate command provides point metrics, not a complete Ding comparison or uncertainty report. Do not tune against test or claim SOTA/fairness improvement from smoke PASS.
+
+Return status separately for A (FF2 blockers) and B (FF++ actual stage). Include exact commit, output roots, checks passed/failed, remaining prerequisites and realistic measured compute estimate.

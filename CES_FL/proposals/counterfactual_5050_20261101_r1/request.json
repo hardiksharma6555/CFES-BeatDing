@@ -1,0 +1,38 @@
+{
+  "request_id": "counterfactual_5050_20261101_r1",
+  "dataset": "FF++ (NOT FairForge-2)",
+  "status": "CPU_SOFTWARE_PASS_CLUSTER_PREFLIGHT_PENDING",
+  "hypothesis": "Source-aligned demographic score consistency improves fairness beyond matched BCE and no-change editor consistency.",
+  "baseline": "Shared 50-epoch detection pretraining, then 50-epoch BCE; matched no-change arm isolates generic editor consistency.",
+  "changed_settings": [
+    "50+50 epochs per path",
+    "full encoder fine-tuning; frozen downstream BN buffers",
+    "each TRAIN original once per epoch with fixed class/group loss weights",
+    "each original paired with its own approved age/gender-presentation/skin variant; rotation across epochs"
+  ],
+  "source": "CES_FL/src/ces_fl_counterfactual_5050.py",
+  "source_sha256": "3e75192a4261eceda122ccd0c616b82928a25e05bc5173b2f728265b37d811ab",
+  "config": "protocol_config.json",
+  "config_sha256": "56e77211a966ae12a449c47cdaf8e3fc271f149c6031513747813a1d1abfaef0",
+  "dependencies": [
+    "Allocated GPU and CUDA smoke PASS",
+    "Verified cluster inputs and real-data dry run PASS",
+    "Real Qwen pilot plus compute/storage estimate",
+    "Full per-source approved coverage and no-change controls",
+    "Completed verified P checkpoint; bind exact checkpoint and bank hashes"
+  ],
+  "required_checks": [
+    "Source/config SHA256",
+    "No TRAIN/validation role change",
+    "Independent original-only generation",
+    "Review identity, target attribute, forensic preservation and unrelated detail preservation",
+    "Identical downstream encoder/head initialization and data order",
+    "Validation-only checkpoint selection and threshold calibration",
+    "Publish real launch and completion evidence"
+  ],
+  "training_launched": false,
+  "cuda_tested": false,
+  "real_generation_tested": false,
+  "fairness_improvement_verified": false,
+  "ff2_comparison_status": "DO NOT RUN: independent review blockers remain; this FF++ implementation does not fix the FF2 Ding baseline or evaluation adapters."
+}
