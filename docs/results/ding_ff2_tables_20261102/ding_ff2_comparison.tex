@@ -1,0 +1,143 @@
+\documentclass[9pt]{article}
+\usepackage[margin=0.42in]{geometry}
+\usepackage{booktabs,longtable,tabularx,array,hyperref,pdflscape,multirow,amsmath}\usepackage[table]{xcolor}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\definecolor{caveat}{RGB}{145,55,0}
+\setlength{\parskip}{4pt}\setlength{\parindent}{0pt}
+\begin{document}
+\begin{center}{\LARGE CES-FL Results in Ding et al.'s Table Format}\\[3pt]
+{\small Source snapshot: commit 39471dc2ab13d51d74d0cfb4fe4052109e20b653; 2 November 2026}\end{center}
+\textbf{Important comparison note.} Layout follows Ding et al.'s Tables 1--3: Table 1 reports FF++ per attribute; Tables 2--3 group gender, race, and intersection metrics by test dataset. Ding's published rows and the CES-FL archived rows are shown together for reference. CES-FL thresholds are validation-calibrated to a 10\% empirical validation-real FPR; Ding's paper operating point and exact test inventory have not been verified as identical. These tables are therefore not an apples-to-apples claim, and no cross-method bold/underline ranking is applied. CES-FL is seed 17 only. Missing cells are shown as em dashes, never zero.
+
+\begin{landscape}\scriptsize\begin{longtable}{llcrrrr}
+\caption{Intra-domain fairness and detection results on FF++ (Ding et al. Table 1 layout). Values are percentages.}\label{tab:table1}\\
+\toprule Attribute & Method & Backbone & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endfirsthead
+\multicolumn{7}{c}{Table 1 (continued)}\\\toprule Attribute & Method & Backbone & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endhead
+\midrule\multicolumn{7}{r}{Continued on next page}\\\endfoot\bottomrule\endlastfoot
+\multirow{8}{*}{Gender} & Ori & Xception & 4.10 & 5.72 & 91.93 & 92.69\\
+ & DAG-FDD & Xception & 1.82 & 4.65 & 94.87 & 96.72\\
+ & DAW-FDD & Xception & 0.78 & 9.52 & 95.76 & 97.46\\
+ & PG-FDD & Xception & 0.62 & 4.74 & 96.32 & 97.66\\
+ & FairAdapter & ViT-L/14 & 4.16 & 12.21 & 67.85 & 71.50\\
+ & RSEF-FDD & Xception & 0.57 & 8.55 & 94.91 & 97.09\\
+ & Ding (paper) & Xception & 0.53 & 3.61 & 96.45 & 97.71\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 0.88 & 3.85 & 97.02 & 98.40\\
+\midrule
+\multirow{8}{*}{Race} & Ori & Xception & 19.76 & 4.74 & 82.85 & 92.69\\
+ & DAG-FDD & Xception & 5.48 & 9.20 & 93.43 & 96.72\\
+ & DAW-FDD & Xception & 5.43 & 14.69 & 94.15 & 97.46\\
+ & PG-FDD & Xception & 11.13 & 4.78 & 94.52 & 97.66\\
+ & FairAdapter & ViT-L/14 & 43.22 & 20.39 & 56.03 & 71.50\\
+ & RSEF-FDD & Xception & 8.39 & 5.28 & 93.60 & 97.09\\
+ & Ding (paper) & Xception & 9.29 & 4.35 & 94.86 & 97.71\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 15.63 & 3.88 & 96.07 & 98.40\\
+\midrule
+\multirow{8}{*}{Intersection} & Ori & Xception & 36.03 & 14.64 & 74.43 & 92.69\\
+ & DAG-FDD & Xception & 24.08 & 26.25 & 85.80 & 96.72\\
+ & DAW-FDD & Xception & 14.36 & 26.13 & 86.74 & 97.46\\
+ & PG-FDD & Xception & 9.19 & 13.39 & 86.83 & 97.66\\
+ & FairAdapter & ViT-L/14 & 86.91 & 42.44 & 45.98 & 71.50\\
+ & RSEF-FDD & Xception & 23.64 & 21.74 & 85.77 & 97.09\\
+ & Ding (paper) & Xception & 20.18 & 9.47 & 86.91 & 97.71\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 30.23 & 12.26 & 90.57 & 98.40\\
+\midrule
+\end{longtable}\end{landscape}
+\begin{landscape}\tiny\setlength{\tabcolsep}{3pt}\begin{longtable}{llc|rrr|rrr|rrr|r}
+\caption{Cross-domain results on DFDC, Celeb-DF, and DFD (Ding et al. Table 2 layout). Values are percentages.}\label{tab:table2}\\
+\toprule Dataset & Method & Backbone & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall\\
+& & & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endfirsthead
+\multicolumn{13}{c}{Table 2 (continued)}\\\toprule Dataset & Method & Backbone & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall\\
+& & & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endhead
+\midrule\multicolumn{13}{r}{Continued on next page}\\\endfoot\bottomrule\endlastfoot
+\multirow{8}{*}{DFDC} & Ori & Xception & 8.67 & 6.70 & 54.56 & 19.41 & 7.99 & 47.02 & 53.42 & 17.34 & 36.96 & 56.13\\
+ & DAG-FDD & Xception & 5.29 & 6.68 & 57.41 & 9.26 & 12.51 & 45.91 & 45.30 & 12.92 & 36.42 & 59.13\\
+ & DAW-FDD & Xception & 3.60 & 3.67 & 55.88 & 22.36 & 9.72 & 47.77 & 46.80 & 12.69 & 36.63 & 56.90\\
+ & PG-FDD & Xception & 2.35 & 2.57 & 57.71 & 10.10 & 11.49 & 50.53 & 32.16 & 17.71 & 37.42 & 59.64\\
+ & FairAdapter & ViT-L/14 & 2.39 & 4.57 & 55.88 & 32.49 & 26.77 & 52.27 & 74.10 & 31.53 & 31.39 & 59.25\\
+ & RSEF-FDD & Xception & 2.09 & 3.83 & 57.90 & 12.24 & 7.74 & 50.27 & 38.89 & 12.18 & 37.72 & 59.08\\
+ & Ding (paper) & Xception & 1.76 & 3.67 & 57.94 & 17.93 & 7.58 & 52.33 & 37.37 & 11.92 & 39.03 & 61.86\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 6.68 & 7.88 & 58.63 & 22.18 & 8.04 & 50.24 & 41.53 & 14.52 & 42.16 & 59.52\\
+\midrule
+\multirow{8}{*}{Celeb-DF} & Ori & Xception & 6.93 & 20.23 & 60.94 & 23.44 & 17.89 & 61.21 & 27.38 & 18.72 & 61.22 & 69.18\\
+ & DAG-FDD & Xception & 8.70 & 14.25 & 66.23 & 19.44 & 13.26 & 62.61 & 23.60 & 13.80 & 63.08 & 72.29\\
+ & DAW-FDD & Xception & 8.71 & 12.73 & 68.31 & 14.76 & 7.80 & 66.47 & 24.75 & 13.78 & 59.24 & 74.09\\
+ & PG-FDD & Xception & 7.95 & 16.29 & 69.47 & 23.99 & 12.47 & 67.78 & 23.71 & 13.30 & 62.63 & 74.24\\
+ & FairAdapter & ViT-L/14 & 8.59 & 26.84 & 56.84 & 46.14 & 36.35 & 58.34 & 47.03 & 35.69 & 54.77 & 64.94\\
+ & RSEF-FDD & Xception & 1.94 & 35.63 & 68.92 & 17.40 & 27.48 & 67.80 & 24.17 & 27.73 & 62.56 & 74.36\\
+ & Ding (paper) & Xception & 6.41 & 10.81 & 69.68 & 16.60 & 7.29 & 69.96 & 23.32 & 12.01 & 63.27 & 76.75\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 9.18 & 23.61 & 64.48 & 31.14 & 23.00 & 51.26 & 34.41 & 25.23 & 51.11 & 74.67\\
+\midrule
+\multirow{8}{*}{DFD} & Ori & Xception & 9.45 & 6.63 & 72.68 & 7.75 & 22.31 & 69.07 & 35.06 & 25.53 & 59.20 & 74.32\\
+ & DAG-FDD & Xception & 5.41 & 5.60 & 75.87 & 2.56 & 21.34 & 70.14 & 33.00 & 23.02 & 61.09 & 76.29\\
+ & DAW-FDD & Xception & 5.30 & 10.63 & 71.68 & 4.32 & 20.16 & 63.24 & 33.81 & 24.72 & 56.01 & 73.71\\
+ & PG-FDD & Xception & 5.05 & 1.86 & 76.37 & 5.79 & 19.31 & 74.81 & 28.00 & 23.93 & 66.32 & 80.70\\
+ & FairAdapter & ViT-L/14 & 6.32 & 7.55 & 63.28 & 11.29 & 12.28 & 56.28 & 29.56 & 33.11 & 48.63 & 68.12\\
+ & RSEF-FDD & Xception & 18.50 & 6.11 & 75.97 & 19.45 & 19.40 & 72.65 & 35.34 & 10.97 & 67.24 & 80.54\\
+ & Ding (paper) & Xception & 4.72 & 5.49 & 78.98 & 2.09 & 18.66 & 77.44 & 27.32 & 22.81 & 69.73 & 81.46\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 5.96 & 2.04 & 81.91 & 9.91 & 0.66 & 81.14 & 43.29 & 4.76 & 73.28 & 82.12\\
+\midrule
+\end{longtable}\end{landscape}
+\begin{landscape}\tiny\setlength{\tabcolsep}{3pt}\begin{longtable}{llc|rrr|rrr|rrr|r}
+\caption{Backbone comparison across FF++, DFDC, Celeb-DF, and DFD (Ding et al. Table 3 layout). Values are percentages.}\label{tab:table3}\\
+\toprule Dataset & Method & Backbone & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall\\
+& & & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endfirsthead
+\multicolumn{13}{c}{Table 3 (continued)}\\\toprule Dataset & Method & Backbone & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall\\
+& & & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$\\\midrule\endhead
+\midrule\multicolumn{13}{r}{Continued on next page}\\\endfoot\bottomrule\endlastfoot
+\multirow{6}{*}{FF++} & Ori & ResNet-50 & 8.90 & 9.27 & 90.40 & 17.49 & 7.04 & 89.17 & 38.26 & 15.43 & 76.14 & 94.29\\
+ & DAG-FDD & ResNet-50 & 1.92 & 6.02 & 91.09 & 6.38 & 3.98 & 91.39 & 32.58 & 11.06 & 80.64 & 94.74\\
+ & DAW-FDD & ResNet-50 & 3.25 & 5.29 & 90.13 & 12.46 & 3.29 & 90.92 & 31.07 & 11.03 & 80.98 & 93.96\\
+ & PG-FDD & ResNet-50 & 3.05 & 3.06 & 93.57 & 10.89 & 2.83 & 91.53 & 22.10 & 9.69 & 81.58 & 94.46\\
+ & Ding (paper) & ResNet-50 & 3.94 & 5.14 & 94.46 & 18.67 & 2.43 & 92.69 & 34.30 & 8.61 & 82.87 & 95.53\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 0.88 & 3.85 & 97.02 & 15.63 & 3.88 & 96.07 & 30.23 & 12.26 & 90.57 & 98.40\\
+\midrule
+\multirow{6}{*}{DFDC} & Ori & ResNet-50 & 12.55 & 11.06 & 54.96 & 17.34 & 8.38 & 48.30 & 48.10 & 16.30 & 35.76 & 57.83\\
+ & DAG-FDD & ResNet-50 & 6.57 & 4.87 & 57.63 & 15.96 & 2.95 & 50.31 & 44.10 & 11.25 & 33.41 & 60.29\\
+ & DAW-FDD & ResNet-50 & 9.12 & 7.14 & 57.22 & 14.60 & 2.81 & 48.94 & 43.31 & 9.55 & 34.71 & 59.78\\
+ & PG-FDD & ResNet-50 & 5.78 & 4.65 & 58.34 & 12.68 & 5.23 & 49.33 & 31.97 & 8.54 & 34.85 & 61.83\\
+ & Ding (paper) & ResNet-50 & 3.97 & 3.61 & 56.96 & 11.94 & 5.15 & 50.99 & 32.14 & 10.27 & 37.55 & 62.54\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 6.68 & 7.88 & 58.63 & 22.18 & 8.04 & 50.24 & 41.53 & 14.52 & 42.16 & 59.52\\
+\midrule
+\multirow{6}{*}{Celeb-DF} & Ori & ResNet-50 & 12.26 & 22.12 & 61.11 & 18.55 & 22.43 & 59.82 & 24.84 & 23.18 & 56.09 & 71.65\\
+ & DAG-FDD & ResNet-50 & 8.22 & 20.45 & 67.01 & 23.07 & 18.50 & 68.07 & 20.29 & 19.33 & 66.76 & 75.77\\
+ & DAW-FDD & ResNet-50 & 9.03 & 20.85 & 68.33 & 18.60 & 17.65 & 69.14 & 23.84 & 18.55 & 68.74 & 76.51\\
+ & PG-FDD & ResNet-50 & 6.98 & 16.92 & 68.49 & 16.74 & 16.50 & 70.35 & 29.34 & 18.72 & 66.26 & 76.10\\
+ & Ding (paper) & ResNet-50 & 4.53 & 12.00 & 68.98 & 6.76 & 8.16 & 71.03 & 5.56 & 9.11 & 68.25 & 77.35\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 9.18 & 23.61 & 64.48 & 31.14 & 23.00 & 51.26 & 34.41 & 25.23 & 51.11 & 74.67\\
+\midrule
+\multirow{6}{*}{DFD} & Ori & ResNet-50 & 10.95 & 9.08 & 70.33 & 4.66 & 12.57 & 66.68 & 33.46 & 16.84 & 56.00 & 71.31\\
+ & DAG-FDD & ResNet-50 & 3.62 & 4.19 & 73.74 & 3.86 & 13.54 & 70.33 & 25.22 & 14.84 & 57.19 & 73.97\\
+ & DAW-FDD & ResNet-50 & 4.81 & 3.90 & 72.12 & 7.36 & 3.21 & 70.57 & 33.45 & 14.30 & 54.52 & 73.58\\
+ & PG-FDD & ResNet-50 & 3.57 & 1.82 & 76.14 & 2.62 & 7.81 & 72.16 & 23.15 & 11.01 & 62.65 & 77.47\\
+ & Ding (paper) & ResNet-50 & 3.12 & 1.76 & 77.68 & 6.51 & 3.03 & 70.93 & 20.99 & 4.85 & 66.19 & 78.63\\
+\rowcolor{blue!8} & CES-FL R2 (partial + DRO)$^{\dagger}$ & Xception & 5.96 & 2.04 & 81.91 & 9.91 & 0.66 & 81.14 & 43.29 & 4.76 & 73.28 & 82.12\\
+\midrule
+\end{longtable}\end{landscape}
+\vspace{-6pt}{\small $\dagger$ CES-FL R2 is the single Xception row shown: partial fine-tuning + DRO, seed 17. It has the highest arithmetic mean AUC (78.68\%) across the four archived Xception test sets among the listed CES-FL arms. This is a post-hoc descriptive choice, not a preregistered model selection; the older ResNet B/C pilots are omitted. Table 3 places this Xception row after Ding et al.’s ResNet-50 rows; the backbone difference is explicit.}
+\textcolor{caveat}{\textbf{Comparison limitation:} Ding et al. report 50 epochs and their own paper operating point. The CES-FL values here are single-seed archived results and were not proven to use an identical test inventory, threshold, or training schedule. Do not interpret this layout as a matched benchmark or claim a general Ding win.}
+\section*{Forty-metric summary}
+For the selected CES-FL R2 reference, 14 of 40 point estimates are numerically favorable to Ding under the preferred direction. This is descriptive only: fairness thresholds and test inventories are not confirmed to match. R2 AUC is above Ding's reported AUC on FF++ (98.40 vs 97.71), and DFD (82.12 vs 81.46), and below on DFDC (59.52 vs 61.86) and Celeb-DF (74.67 vs 76.75). No multi-seed uncertainty estimates are available.
+\begin{landscape}\scriptsize\setlength{\tabcolsep}{3pt}\begin{longtable}{ll|rrr|rrr|rrr|rr}
+\caption{FairForge-2 comparison with Ding-style fairness metrics. Values are percentages; full and public splits are separated from FF++-trained transfer evaluations.}\\
+\toprule Protocol & Model & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall & Test\\
+& & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$ & $N$\\\midrule\endfirsthead
+\multicolumn{13}{c}{FairForge-2 Table 4 (continued)}\\\toprule Protocol & Model & \multicolumn{3}{c|}{Gender} & \multicolumn{3}{c|}{Race} & \multicolumn{3}{c|}{Intersection} & Overall & Test\\
+& & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & $F_{FPR}\downarrow$ & $F_{DP}\downarrow$ & $es\text{-}AUC\uparrow$ & AUC$\uparrow$ & $N$\\\midrule\endhead
+\midrule\multicolumn{13}{r}{Continued on next page}\\\endfoot\bottomrule\endlastfoot
+FF2 internal & Ding classification & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & 99.2619 & 182884\\
+FF2 internal & Ding SFD+GDA & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & 99.3573 & 182884\\
+FF2 internal & Older CFES detection-only & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & 97.6043 & 182884\\
+FF2 internal & Older CFES fairness run & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & 98.0969 & 182884\\
+FF++ $\to$ FF2 & Ding Ori, Xception seed 7 & 3.23 & 1.06 & 41.75 & 25.27 & 17.64 & 39.76 & 69.79 & 29.76 & 36.26 & 41.85 & 182884\\
+FF++ $\to$ FF2 & Ding SFD+GDA, Xception seed 7 & 3.00 & 3.93 & 42.29 & 30.01 & 21.39 & 40.64 & 79.58 & 30.24 & 37.91 & 42.40 & 182884\\
+FF2 public & Older CFES-D & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & 98.2598 & 87564\\
+FF2 public & Current CES-FL R2 & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & \textemdash & Not run\\
+\end{longtable}
+\par\smallskip\textit{The FF++$\to$FF2 rows are separate transfer evaluations from archived FF++ checkpoints. Their group statistics use the evaluator's fixed probability cutoff 0.5 and Ding Eqs. 8--10; their low AUCs (41.85\%, 42.40\%) must not be confused with the FF2-trained in-domain checkpoints above. Fairness metrics for the four in-domain full-split rows and the public CFES-D row were not available for their matching saved-score/checkpoint artifacts, so they are left blank. An FF2-trained current CES-FL run does not exist in the audited results.}
+\par\smallskip\textit{Internal/full manifests: 502,035 TRAIN / 74,974 SELECT / 182,884 TEST. Public manifests: 218,266 TRAIN / 31,107 SELECT / 87,564 TEST. The internal Ding run was a local budget-limited 5-epoch classification + 5-epoch GDA archive, not a verified exact paper reproduction.}
+\end{landscape}
+\smallskip\textit{The FF++$\to$FF2 rows are separate transfer evaluations from archived FF++ checkpoints. Their group statistics use the evaluator's fixed probability cutoff 0.5 and Ding Eqs. 8--10; their low AUCs (41.85\%, 42.40\%) must not be confused with the FF2-trained in-domain checkpoints above. Fairness metrics for the four in-domain full-split rows and the public CFES-D row were not available for their matching saved-score/checkpoint artifacts, so they are left blank. An FF2-trained current CES-FL run does not exist in the audited results.}
+\smallskip\textit{Internal/full manifests: 502,035 TRAIN / 74,974 SELECT / 182,884 TEST. Public manifests: 218,266 TRAIN / 31,107 SELECT / 87,564 TEST. The internal Ding run was a local budget-limited 5-epoch classification + 5-epoch GDA archive, not a verified exact paper reproduction.}
+\section*{Sources}
+Ding et al., \href{https://arxiv.org/pdf/2511.10150}{Tables 1--3 of arXiv:2511.10150v5}. Archived CES-FL comparison rows: commit 39471dc, accompanying CSV. FairForge-2 results audit: \href{https://github.com/hardikbha/CFES-BeatDing/blob/39471dc2ab13d51d74d0cfb4fe4052109e20b653/FAIRFORGE2_INDOMAIN_RESULTS_20261031.md}{historical FF2 audit}. Ding published values are transcribed from the paper tables. CES-FL extracted rows are rounded here to two decimals; missing values are retained as em dashes.
+\end{document}
