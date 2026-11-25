@@ -1,6 +1,6 @@
 # Reviewed lightweight pilot handoff
 
-Runnable code/config commit: `b67400c3588dc79d1d85a8fe5fa1baf4497c5c60`.
+Current runnable code/config commit: `1d43db947b6d04f8373ab115eee61c0a331ef7e4`.
 
 Publish repository: `https://github.com/hardiksharma6555/CFES-BeatDing`.
 Branch: `experiment/lh-lite-feasibility-20261125-r1`.
@@ -12,7 +12,9 @@ After approval, fetch the runnable commit into a detached checkout:
 
 ```sh
 git fetch https://github.com/hardiksharma6555/CFES-BeatDing.git experiment/lh-lite-feasibility-20261125-r1
-git worktree add --detach /home/sachin.chaudhary/ces_fl_sources/lite_b67400c b67400c3588dc79d1d85a8fe5fa1baf4497c5c60
+git worktree add --detach /home/sachin.chaudhary/ces_fl_sources/lite_1d43db9 1d43db947b6d04f8373ab115eee61c0a331ef7e4
 ```
 
 Follow `GPU_OPERATOR_PROMPT.md`; use the prepared one-GPU PBS launcher and site-verified CUDA binding. The source checkout and all new output directories must be separate from existing runs. CPU postprocessing is separate from the GPU allocation and measures both actual FP32 and INT8 deployment artifacts.
+
+This supersedes the earlier launcher: incomplete epoch-boundary stops now fail the dependent-stage check even when training returns exit0. The scientific model/training source and prior CPU checks are unchanged. Eight completion checks passed.
