@@ -1,24 +1,24 @@
-/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
-For migrations of users: 
-1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
-2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
-3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10.
+For migrations of users:
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e)
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e)
 see https://github.com/pytorch/ao/issues/2259 for more details
   torch.ao.quantization.prepare(q, inplace=True)
 {"model": "mobile_v2_relu_100", "params": 2225153, "fp32_MB": 8.867696, "int8_MB": 2.317544, "MACs_M": 299.495552}
-/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
-For migrations of users: 
-1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
-2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
-3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10.
+For migrations of users:
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e)
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e)
 see https://github.com/pytorch/ao/issues/2259 for more details
   torch.ao.quantization.prepare(q, inplace=True)
 {"model": "mobile_v2_relu_050", "params": 688961, "fp32_MB": 2.754034, "int8_MB": 0.765992, "MACs_M": 48.90528}
-/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10. 
-For migrations of users: 
-1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead 
-2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e) 
-3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e) 
+/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_feasibility.py:243: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10.
+For migrations of users:
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e)
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e)
 see https://github.com/pytorch/ao/issues/2259 for more details
   torch.ao.quantization.prepare(q, inplace=True)
 {"model": "micro_ds_096", "params": 123145, "fp32_MB": 0.501, "int8_MB": 0.150267, "MACs_M": 7.190688}
