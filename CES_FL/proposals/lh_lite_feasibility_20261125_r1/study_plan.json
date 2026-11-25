@@ -1,6 +1,6 @@
 {
   "request_id": "lh_lite_feasibility_20261125_r1",
-  "state": "RESOURCE_FEASIBILITY_VERIFIED_ACCURACY_PENDING",
+  "state": "LOCAL_LIFECYCLE_AND_PRODUCTION_CPU_PASS_GPU_ALLOWANCE_PENDING",
   "base_commit": "1a6d63db6baf7f6ad2a8e842a31341d2c128de25",
   "primary_candidate": "mobile_v2_relu_100",
   "primary_input_size": 224,
@@ -15,13 +15,13 @@
     "FFPP_DING_PUBLIC",
     "FairForge-2 fixed public split"
   ],
-  "teacher_checkpoint": null,
-  "teacher_checkpoint_sha256": null,
-  "train_manifest_sha256": null,
-  "validation_manifest_sha256": null,
+  "teacher_checkpoint": "/home/sachin.chaudhary/ces_fl_runs/plain_head_s17_20261103T101418Z/L_H/best.pt",
+  "teacher_checkpoint_sha256": "6ef2caad3979d101fd94d7350aa3c1a50f95ee8307673cfaae63ac9d89af36f0",
+  "train_manifest_sha256": "6ee9326fe8361dc3aee0f803c49b5eada169be5cf3bc3cb44ad3d934ba5ca657",
+  "validation_manifest_sha256": "52f4844cffe5a03adb08cecde8829244bb50e05eeead36f6d659599f1c24f5b1",
   "production_training_authorized_or_launched": false,
   "new_gpu_hours_allocated": null,
-  "training_implementation_ready": false,
+  "training_implementation_ready": true,
   "proposed_candidate_training": {
     "epochs": 10,
     "batch_size": 32,
@@ -49,9 +49,7 @@
     "uncertainty": "paired contributor/video bootstrap; report support failures and single-seed limitations"
   },
   "remaining_requirements": [
-    "freeze completed teacher by native validation policy, not best-per-TEST rows",
-    "bind TRAIN/validation manifests and provenance",
-    "integrate tested student/loss primitives with complete training/evaluation pipeline",
+    "new GPU budget approval, allocated device binding and fresh CUDA backward checks",
     "run controlled paired accuracy/fairness study including calibrated INT8 exported model",
     "confirm board and flash/PSRAM partitions for ESP32 claim",
     "export actual ESP-PPQ power-of-two .espdl and verify supported operators",

@@ -2,6 +2,14 @@
 
 The under-10-MB storage requirement is demonstrated with actual serialized, executable candidate architectures. Similar detection/fairness performance and ESP32 deployment remain unverified. This is a separate deployment study; the existing CVPR paper and completed experimental results are unchanged.
 
+## End-to-end pipeline milestone
+
+`CES_FL/src/ces_fl_lite_training.py` now implements prepare, discarded backward checks, three controlled training arms, resume, selected-checkpoint validation replay, actual INT8 export/validation, and paired comparison. Six lifecycle/guard tests and four independent loss tests passed locally. Real cluster preparation passed for all 76,139 TRAIN and 25,386 validation records. The real-input CPU backward check passed with zero optimizer updates, finite nonzero student gradients, a frozen teacher and unchanged student BatchNorm running buffers. This does not certify GPU execution or task performance.
+
+The FF++ teacher checkpoint was freshly hashed and matches the native completed record. Its ImageNet student initialization was downloaded explicitly from torchvision's official URL to the dedicated cluster asset directory and checksum-verified; no trainer downloads weights automatically. Exact configurations are in `configs/`. [GPU operator instructions](GPU_OPERATOR_PROMPT.md) and `CES_FL/cluster/lite_three_arm_one_gpu.pbs` are prepared for one GPU and at most four additional allocated GPU-hours. This new allowance has been requested and remains pending. The previous 72-hour FF2 budget is not reassigned.
+
+The production CPU-check process completed with exit0 at `/home/sachin.chaudhary/ces_fl_runs/lite_cpu_checks_20261125_391892433106`; no process from that check remains running. Source files were staged in a separate immutable snapshot. The first short cluster environment-import query timed out; its timeout was preserved, and the separately bounded CPU check subsequently completed successfully. Actual receipts are in `evidence/CPU_PRODUCTION_CHECKS.json` and `evidence/TRAINING_SOFTWARE_CHECKS.json`.
+
 ## Verified local resource results
 
 All weights are randomly initialized. Calibration is synthetic. These are resource/software results, not detector accuracy or fairness results. MB means 1,000,000 bytes. Export is frozen TorchScript FP32 or genuinely quantized QNNPACK INT8; no ZIP compression is used to meet the size limit.
@@ -22,19 +30,19 @@ Four numerical/gradient tests check binary distillation against an independent t
 
 Start with **the 224×224 full-width candidate**, which already satisfies the size limit in FP32. INT8 provides substantial storage headroom without initially discarding high-frequency information through aggressive spatial downsampling. The half-width and micro candidates are later hardware tradeoff tests.
 
-Use a completed, frozen, validation-selected native teacher for each dataset. Do not select an oracle teacher from the best-per-TEST tables. The original FF++ L_H and later FairForge-2 cohorts are different experiments; their checkpoints, input normalization, selection policies and scores cannot be interchanged. The upstream branch `results/ff2-fully-matched-interim-20261110` at `43c2272448` reports completed seven-method, three-downstream-seed cohorts, but checkpoint bytes and current private availability have not been inspected here.
+Use a completed, frozen, validation-selected native teacher for each dataset. Do not select an oracle teacher from the best-per-TEST tables. The original FF++ L_H and later FairForge-2 cohorts are different experiments; their checkpoints, input normalization, selection policies and scores cannot be interchanged. FF++ teacher bytes and private inputs are now verified. The upstream branch `results/ff2-fully-matched-interim-20261110` at `43c2272448` reports completed seven-method, three-downstream-seed cohorts; this new student pipeline has not bound those FF2 teacher checkpoints.
 
 The proposed training direction is **fairness-aware preservation of forensic responses under compression**:
 
 1. Keep ground-truth classification on original TRAIN images. Match a plain compact BCE control and preserve sampling/split roles.
 2. Distill teacher binary scores. Compare ordinary KD with group-balanced, class-conditional KD; the included primitive averages over supplied class-by-group cells. Absent/sparse groups need the existing support policy.
 3. Keep direct student fairness control so the student is not merely required to reproduce teacher biases. Native H is a candidate baseline objective, not a proven fairness guarantee.
-4. Add paired response distillation on the same sham/treated TRAIN source and operator/strength condition. Match `asinh(z_treated - z_sham)`, with detached teacher targets. The implemented function is a tested loss primitive, not yet an integrated training run. Different teacher/student resolutions must use the same source-space intervention and documented preprocessing.
+4. Add paired response distillation on the same sham/treated TRAIN source and operator/strength condition. Match `asinh(z_treated - z_sham)`, with detached teacher targets. This is now integrated and smoke-tested in the end-to-end trainer; production training remains pending. Different teacher/student resolutions must use the same source-space intervention and documented preprocessing.
 5. Quantize using representative TRAIN-only calibration. Measure the exported INT8 model directly. If group or manipulation-family degradation is material, test target-compatible quantization-aware fine-tuning, using controls that isolate its contribution.
 
 Teacher logits/responses can be cached under source, checkpoint, preprocessing and intervention hashes to save repeated teacher forward passes. Do not cache a different stochastic view and silently pair it with a student input. Initial paired development should use seed17; multiple seeds follow only if the controlled result warrants the cost. This proposal has no new GPU allocation and does not reuse the separate historical FF2 budget.
 
-The included `study_plan.json` is **a research specification, not a runnable trainer config**. Its candidate learning rate, loss weights and noninferiority tolerances are engineering proposals, not tuned or accepted results. A practical proposed target is at most one percentage-point loss in overall and worst-group AUC, with subgroup error constraints at a common pooled-FPR target. Final tolerances must be frozen before evaluation. Accuracy alone is insufficient: compare AUC, es-AUC, F_FPR, F_DP, subgroup FNR, worst-group performance and uncertainty on the same data. Classify unsupported uncertainty as inconclusive rather than relaxing the criterion.
+The included `study_plan.json` is **a research specification**, while `configs/*.json` are exact runnable trainer configurations. Candidate learning rates, loss weights and noninferiority tolerances are engineering proposals, not tuned or accepted results. A practical proposed target is at most one percentage-point loss in overall and worst-group AUC, with subgroup error constraints at a common pooled-FPR target. Final tolerances must be frozen before evaluation. Accuracy alone is insufficient: compare AUC, es-AUC, F_FPR, F_DP, subgroup FNR, worst-group performance and uncertainty on the same data. Classify unsupported uncertainty as inconclusive rather than relaxing the criterion.
 
 ## ESP32 feasibility boundary
 

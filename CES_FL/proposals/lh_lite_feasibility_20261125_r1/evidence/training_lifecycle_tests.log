@@ -1,0 +1,29 @@
+test_calibration_retains_class_group_coverage (test_lite_training.LiteLifecycle) ... ok
+test_changed_cache_rejected_and_bn_buffers_frozen (test_lite_training.LiteLifecycle) ... ok
+test_dry_run_and_budget_stop (test_lite_training.LiteLifecycle) ... ok
+test_epoch_boundary_resume_matches_uninterrupted (test_lite_training.LiteLifecycle) ... {"status": "PREFLIGHT_PASS", "train": 16, "val": 16}
+{"arm": "kd", "epoch": 1, "validation_auc": 0.5, "seconds": 2.372909791999998}
+{"arm": "kd", "epoch": 2, "validation_auc": 0.5, "seconds": 4.860392999999998}
+{"arm": "kd", "epoch": 1, "validation_auc": 0.5, "seconds": 2.982883749999999}
+{"arm": "kd", "epoch": 2, "validation_auc": 0.5, "seconds": 5.7989862909999985}
+ok
+test_full_three_arm_lifecycle_and_actual_quantized_export (test_lite_training.LiteLifecycle) ... {"arm": "bce", "epoch": 1, "validation_auc": 0.5, "seconds": 1.1469872920000057}
+{"arm": "bce", "epoch": 2, "validation_auc": 0.5, "seconds": 2.4436595000000025}
+{"arm": "kd", "epoch": 1, "validation_auc": 0.5, "seconds": 3.2272364999999965}
+{"arm": "kd", "epoch": 2, "validation_auc": 0.5, "seconds": 6.021560999999998}
+{"arm": "fair_response", "epoch": 1, "validation_auc": 0.5, "seconds": 8.802910458000007}
+{"arm": "fair_response", "epoch": 2, "validation_auc": 0.3125, "seconds": 17.765300833000005}
+/Users/hardiksharma/Downloads/fairness_cvpr/CFES-BeatDing-lite-20261125-r1/CES_FL/src/ces_fl_lite_training.py:402: DeprecationWarning: torch.ao.quantization is deprecated and will be removed in 2.10.
+For migrations of users:
+1. Eager mode quantization (torch.ao.quantization.quantize, torch.ao.quantization.quantize_dynamic), please migrate to use torchao eager mode quantize_ API instead
+2. FX graph mode quantization (torch.ao.quantization.quantize_fx.prepare_fx,torch.ao.quantization.quantize_fx.convert_fx, please migrate to use torchao pt2e quantization API instead (prepare_pt2e, convert_pt2e)
+3. pt2e quantization has been migrated to torchao (https://github.com/pytorch/ao/tree/main/torchao/quantization/pt2e)
+see https://github.com/pytorch/ao/issues/2259 for more details
+  torch.ao.quantization.prepare(model.net,inplace=True)
+ok
+test_production_cannot_use_synthetic_fixture (test_lite_training.LiteLifecycle) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 74.474s
+
+OK

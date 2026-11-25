@@ -1,0 +1,35 @@
+{
+  "L_H/best.pt": {
+    "exists": true,
+    "sha256": "6ef2caad3979d101fd94d7350aa3c1a50f95ee8307673cfaae63ac9d89af36f0"
+  },
+  "L_H/RUN_VERIFIED.json": {
+    "exists": true,
+    "sha256": "906ac67d6b5cd7d68cc929b6f35b56474a594335ded78971c70382060200fcb4"
+  },
+  "L_H/config.json": {
+    "exists": true,
+    "sha256": "182c3cb5426a06a58b54d32520e0a1d32fe45ad96d61b720f351e5c17552406c"
+  },
+  "L_H/history.json": {
+    "exists": true,
+    "sha256": "78ca2bba4c9e152bd0963feeb061d55789f46f99795f87d96dea6734d6dcabea"
+  },
+  "L_H/validation_scores_PRIVATE.json": {
+    "exists": true,
+    "sha256": "a198aeb62421d37ba319078e9cfb2bbbdd28bbcc1baa4eef72914cc195ad9b12"
+  },
+  "preflight_H/PREFLIGHT.json": {
+    "exists": true,
+    "sha256": "160132d23792dc210227d90329f460f17bc79a7eff54068702bb07a6c20d83fe"
+  },
+  "preflight_H/inventory_PRIVATE.json": {
+    "exists": true,
+    "sha256": "5c6e2531e438a85adcadb171138d443ab82856d7281754a99e8374e1b706c72f"
+  },
+  "review_H/qualification.json": {
+    "exists": true,
+    "sha256": "f358a144be8a8eba42b4f142c74223c0b90b80f38370221dd3fc15fe580af742"
+  },
+  "teacher_sha_matches": true
+}

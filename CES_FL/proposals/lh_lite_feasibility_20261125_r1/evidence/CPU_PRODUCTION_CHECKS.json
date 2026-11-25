@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "results": {
+    "bce": {
+      "prepare": {
+        "status": "PREPARED",
+        "config_digest": "18de5ac75e392357266cfadb7c229c59080bc3c345a82ea72e785c929ee94165",
+        "source_hashes": {
+          "ces_fl_lite_training.py": "3ecf364cf3c649cd20be1bd4346bc6275550eb2355057839e41a3162924171f9",
+          "ces_fl_head_ablation.py": "08a9c5e5ca0f6a6f1fb19d86c25ea3e62fcabe45302f5d388252de61a1c4a177",
+          "ces_fl_lite_feasibility.py": "e1859a7d23f93c432ca571846e96ddbaafb86209d4d138f99c1119f3d84a30fe"
+        },
+        "parameters": {
+          "total": 2225153,
+          "trainable": 2225153
+        },
+        "train_rows": 76139,
+        "validation_rows": 25386,
+        "images_rehashed_during_load": true,
+        "full_fresh_image_decode_executed": false,
+        "test_read": false,
+        "synthetic_fixture": false,
+        "teacher_epoch": 1,
+        "split_audit": {
+          "recorded_contributor_overlap": {
+            "identity_ids": 163,
+            "source_ids": 163
+          },
+          "true_person_separation_verified": false,
+          "checked_overlap_keys": [
+            "identity_ids:train:val",
+            "source_ids:train:val"
+          ],
+          "deferred_overlap_keys": [
+            "identity_ids:train:test",
+            "identity_ids:val:test",
+            "source_ids:train:test",
+            "source_ids:val:test"
+          ]
+        },
+        "native_preflight_inventory_sha256": "5c6e2531e438a85adcadb171138d443ab82856d7281754a99e8374e1b706c72f"
+      }
+    },
+    "kd": {
+      "prepare": {
+        "status": "PREPARED",
+        "config_digest": "ff88c27a8256d45de89717b17120f5effb12f132612501a5f12eb6691662d5ab",
+        "source_hashes": {
+          "ces_fl_lite_training.py": "3ecf364cf3c649cd20be1bd4346bc6275550eb2355057839e41a3162924171f9",
+          "ces_fl_head_ablation.py": "08a9c5e5ca0f6a6f1fb19d86c25ea3e62fcabe45302f5d388252de61a1c4a177",
+          "ces_fl_lite_feasibility.py": "e1859a7d23f93c432ca571846e96ddbaafb86209d4d138f99c1119f3d84a30fe"
+        },
+        "parameters": {
+          "total": 2225153,
+          "trainable": 2225153
+        },
+        "train_rows": 76139,
+        "validation_rows": 25386,
+        "images_rehashed_during_load": true,
+        "full_fresh_image_decode_executed": false,
+        "test_read": false,
+        "synthetic_fixture": false,
+        "teacher_epoch": 1,
+        "split_audit": {
+          "recorded_contributor_overlap": {
+            "identity_ids": 163,
+            "source_ids": 163
+          },
+          "true_person_separation_verified": false,
+          "checked_overlap_keys": [
+            "identity_ids:train:val",
+            "source_ids:train:val"
+          ],
+          "deferred_overlap_keys": [
+            "identity_ids:train:test",
+            "identity_ids:val:test",
+            "source_ids:train:test",
+            "source_ids:val:test"
+          ]
+        },
+        "native_preflight_inventory_sha256": "5c6e2531e438a85adcadb171138d443ab82856d7281754a99e8374e1b706c72f"
+      }
+    },
+    "fair_response": {
+      "prepare": {
+        "status": "PREPARED",
+        "config_digest": "caa6b0a58a4160aeb807872ceb851059b199f576850481640da4a311e0511a31",
+        "source_hashes": {
+          "ces_fl_lite_training.py": "3ecf364cf3c649cd20be1bd4346bc6275550eb2355057839e41a3162924171f9",
+          "ces_fl_head_ablation.py": "08a9c5e5ca0f6a6f1fb19d86c25ea3e62fcabe45302f5d388252de61a1c4a177",
+          "ces_fl_lite_feasibility.py": "e1859a7d23f93c432ca571846e96ddbaafb86209d4d138f99c1119f3d84a30fe"
+        },
+        "parameters": {
+          "total": 2225153,
+          "trainable": 2225153
+        },
+        "train_rows": 76139,
+        "validation_rows": 25386,
+        "images_rehashed_during_load": true,
+        "full_fresh_image_decode_executed": false,
+        "test_read": false,
+        "synthetic_fixture": false,
+        "teacher_epoch": 1,
+        "split_audit": {
+          "recorded_contributor_overlap": {
+            "identity_ids": 163,
+            "source_ids": 163
+          },
+          "true_person_separation_verified": false,
+          "checked_overlap_keys": [
+            "identity_ids:train:val",
+            "source_ids:train:val"
+          ],
+          "deferred_overlap_keys": [
+            "identity_ids:train:test",
+            "identity_ids:val:test",
+            "source_ids:train:test",
+            "source_ids:val:test"
+          ]
+        },
+        "native_preflight_inventory_sha256": "5c6e2531e438a85adcadb171138d443ab82856d7281754a99e8374e1b706c72f"
+      },
+      "backward": {
+        "status": "PASS",
+        "source_hashes": {
+          "ces_fl_lite_training.py": "3ecf364cf3c649cd20be1bd4346bc6275550eb2355057839e41a3162924171f9",
+          "ces_fl_head_ablation.py": "08a9c5e5ca0f6a6f1fb19d86c25ea3e62fcabe45302f5d388252de61a1c4a177",
+          "ces_fl_lite_feasibility.py": "e1859a7d23f93c432ca571846e96ddbaafb86209d4d138f99c1119f3d84a30fe"
+        },
+        "config_digest": "caa6b0a58a4160aeb807872ceb851059b199f576850481640da4a311e0511a31",
+        "device": "cpu",
+        "main_train_images": 4,
+        "real_source_pairs": 2,
+        "native_auxiliary_axis": "gender_race",
+        "losses": {
+          "total": 2.447317123413086,
+          "classification": 0.7568297982215881,
+          "error_fairness": 0.009859297424554825,
+          "original_sensitivity": 0.4839983284473419,
+          "aux_sensitivity": 0.5024136304855347,
+          "response_alignment": 0.010217780247330666,
+          "original_control_stability": 0.05279327556490898,
+          "aux_control_stability": 0.020538311451673508,
+          "teacher_logit_kd": 2.559338092803955,
+          "teacher_response_kd": 1.4667482376098633
+        },
+        "seconds": 7.784206740092486,
+        "student_gradients_finite_nonzero": true,
+        "teacher_frozen": true,
+        "student_bn_buffers_frozen": true,
+        "optimizer_updates": 0,
+        "validation_inference": false,
+        "test_read": false,
+        "synthetic_fixture": false
+      }
+    }
+  },
+  "production_optimizer_updates": 0,
+  "validation_inference": false,
+  "test_read": false
+}

@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Prepared launch only. Submit after the new study's GPU allowance is granted.
+#PBS -N cesfl_lite_s17
+#PBS -q gpu
+#PBS -l select=1:ncpus=8:ngpus=1:mem=32gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+set -Eeuo pipefail
+: "${PBS_JOBID:?Run inside a legitimate PBS allocation}"
+: "${CES_LITE_SOURCE:?Immutable detached Git checkout}"
+: "${CES_LITE_COMMIT:?Exact reviewed commit}"
+: "${CES_LITE_PREPARED:?Root containing CPU_PRODUCTION_CHECKS.json and prepared arms}"
+: "${CES_LITE_RUNS:?New absolute run directory}"
+: "${CUDA_VISIBLE_DEVICES:?Operator must verify the actual allocated device mapping}"
+CES_PY=${CES_PY:-/home/sachin.chaudhary/.conda/envs/aiface/bin/python}
+[[ $(git -C "$CES_LITE_SOURCE" rev-parse HEAD) == "$CES_LITE_COMMIT" ]]
+if git -C "$CES_LITE_SOURCE" symbolic-ref -q HEAD >/dev/null; then
+    echo 'Use a detached checkout.' >&2; exit 2
+fi
+[[ -z $(git -C "$CES_LITE_SOURCE" status --porcelain -- CES_FL) ]]
+[[ "$CES_LITE_RUNS" = /* && ! -e "$CES_LITE_RUNS" ]]
+[[ "$CES_LITE_RUNS/" != "$CES_LITE_SOURCE/"* ]]
+export CES_LITE_SOURCE CES_LITE_PREPARED CES_LITE_RUNS
+export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4
+export PYTHONPATH="$CES_LITE_SOURCE/CES_FL/src${PYTHONPATH:+:$PYTHONPATH}"
+"$CES_PY" - <<'PY'
+import json, os, subprocess
+from pathlib import Path
+import torch
+import ces_fl_lite_training as tr
+p=Path(os.environ['CES_LITE_PREPARED'])
+checks=json.loads((p/'CPU_PRODUCTION_CHECKS.json').read_text())
+assert checks['status']=='PASS'
+assert checks['results']['fair_response']['backward']['source_hashes']==tr.source_hashes()
+assert torch.cuda.is_available() and torch.cuda.device_count()==1
+assert torch.cuda.is_bf16_supported()
+for arm in tr.ARMS:
+    record=json.loads((p/('prepared_'+arm)/'PREPARED.json').read_text())
+    assert record['source_hashes']==tr.source_hashes()
+out=Path(os.environ['CES_LITE_RUNS']);out.mkdir(parents=True,exist_ok=False)
+metadata={'pbs_jobid':os.environ['PBS_JOBID'],'host':os.uname().nodename,
+          'commit':subprocess.check_output(['git','-C',os.environ['CES_LITE_SOURCE'],'rev-parse','HEAD'],text=True).strip(),
+          'source_hashes':tr.source_hashes(),'cuda_visible_devices':os.environ['CUDA_VISIBLE_DEVICES'],
+          'device_name':torch.cuda.get_device_name(0),'torch':str(torch.__version__),
+          'note':'Visibility alone does not establish device ownership; operator must verify PBS mapping.',
+          'max_allocated_gpu_hours':4,'test_read':False}
+tr.native.write_json(out/'LAUNCH.json',metadata)
+PY
+CES_LITE_ENTRY="$CES_LITE_SOURCE/CES_FL/src/ces_fl_lite_training.py"
+# Failures stop the chain. Every arm uses the same model initialization and split.
+for CES_ARM in bce kd fair_response; do
+    "$CES_PY" -u "$CES_LITE_ENTRY" dry-run \
+        --prepared "$CES_LITE_PREPARED/prepared_$CES_ARM" \
+        --out "$CES_LITE_RUNS/cuda_check_$CES_ARM" --device cuda
+    "$CES_PY" -u "$CES_LITE_ENTRY" train \
+        --prepared "$CES_LITE_PREPARED/prepared_$CES_ARM" \
+        --out "$CES_LITE_RUNS/$CES_ARM" --device cuda
+done
+printf 'All three training arms completed; CPU quantization/analysis is separate.\n' > "$CES_LITE_RUNS/GPU_STAGE_DONE"

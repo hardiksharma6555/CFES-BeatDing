@@ -1,3 +1,7 @@
+## Lightweight deployment preparation — 25 November 2026
+
+The new [student study](proposals/lh_lite_feasibility_20261125_r1/README.md) has real FF++ CPU preparation/backward PASS, verified teacher/input hashes, and six synthetic lifecycle plus four numerical loss tests. The bounded CPU check completed with exit0. GPU training is NOT running; up to four new GPU-hours on one H100 has been requested and is pending. No lightweight accuracy, fairness-retention, or ESP32 deployment result is claimed. This dated preparation does not update other studies' process state.
+
 ## FairForge-2 baseline preparation — 2026-11-03T11:33:27.003004+00:00
 
 ## Full L_H channel-selection extension — 10 November2026

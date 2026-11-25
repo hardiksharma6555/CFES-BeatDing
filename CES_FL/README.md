@@ -1,5 +1,9 @@
 # CES-FL — supervisor review and training handoff
 
+## Lightweight deployment study — 25 November 2026
+
+[Study and measured sizes](proposals/lh_lite_feasibility_20261125_r1/README.md) · [Trainer](src/ces_fl_lite_training.py) · [GPU operator prompt](proposals/lh_lite_feasibility_20261125_r1/GPU_OPERATOR_PROMPT.md). Three untrained resource prototypes fit below10MB, including a224×224 MobileNetV2 at2.32MB INT8. Six synthetic lifecycle/guard tests, four numerical loss tests and real FF++ CPU preparation/backward checks passed. The teacher and original TRAIN/validation inputs are bound. New GPU allowance and CUDA checks remain pending; no lightweight task-accuracy or ESP32 execution result exists. This is separate from historical FF2 and CVPR studies.
+
 ## Full L_H channel-selection extension — 10 November2026
 
 [Proposal](proposals/lh_channel_selection_20261110_r1/README.md) · [standalone Python](src/ces_fl_lh_channel_selection.py) · [full diagram](proposals/lh_channel_selection_20261110_r1/figures/L_H_Channel_Selection_Full.png) · [operator instructions](proposals/lh_channel_selection_20261110_r1/GPU_OPERATOR_PROMPT.md). Fourteen CPU unit tests, original and masked full-L_H synthetic lifecycle checks and objective-preservation checks passed. The new fixed mask preserves hierarchical error control and all matched-response losses. Production inputs, human qualification, CUDA and budget checks remain pending. No production training launched, no new results or TEST access. Historical observations below are preserved.
