@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": 4,
+  "command": "python -m unittest discover -s CES_FL/tests -p test_lite_distillation.py -v",
+  "checks": [
+    "binary KL vs independent two-class KL",
+    "teacher detached from gradients",
+    "equal-cell rather than sample weighting",
+    "paired-response invariance to common score shifts and finite gradients"
+  ],
+  "source_sha256": "e1859a7d23f93c432ca571846e96ddbaafb86209d4d138f99c1119f3d84a30fe",
+  "accuracy_test": false
+}

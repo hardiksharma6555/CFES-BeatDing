@@ -1,0 +1,62 @@
+{
+  "request_id": "lh_lite_feasibility_20261125_r1",
+  "state": "RESOURCE_FEASIBILITY_VERIFIED_ACCURACY_PENDING",
+  "base_commit": "1a6d63db6baf7f6ad2a8e842a31341d2c128de25",
+  "primary_candidate": "mobile_v2_relu_100",
+  "primary_input_size": 224,
+  "alternate_candidates": [
+    "mobile_v2_relu_050",
+    "micro_ds_096"
+  ],
+  "target_model_file_bytes_exclusive": 10000000,
+  "proposed_device": "ESP32-S3 with PSRAM for MCU route; exact board unbound",
+  "seed": 17,
+  "dataset_priority": [
+    "FFPP_DING_PUBLIC",
+    "FairForge-2 fixed public split"
+  ],
+  "teacher_checkpoint": null,
+  "teacher_checkpoint_sha256": null,
+  "train_manifest_sha256": null,
+  "validation_manifest_sha256": null,
+  "production_training_authorized_or_launched": false,
+  "new_gpu_hours_allocated": null,
+  "training_implementation_ready": false,
+  "proposed_candidate_training": {
+    "epochs": 10,
+    "batch_size": 32,
+    "optimizer": "AdamW",
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "temperature": 2.0,
+    "lambda_kd": 0.5,
+    "lambda_response_kd": 0.1,
+    "selection": "earliest maximum overall validation AUC",
+    "threshold": "global validation-real 10% FPR; frozen before TEST",
+    "weights_initialization": "bind local ImageNet checkpoint or explicitly preregister from-scratch; none downloaded",
+    "calibration_membership": "TRAIN-only; class/group and capture-condition stratified; never TEST"
+  },
+  "proposed_arms": [
+    "same compact student, original-data weighted BCE",
+    "same student + ordinary teacher logit KD",
+    "same student + group-balanced logit KD + native H regularizers + paired response KD"
+  ],
+  "candidate_proposal_targets_not_results": {
+    "overall_auc_drop_max_fraction": 0.01,
+    "worst_group_auc_drop_max_fraction": 0.01,
+    "subgroup_fpr_increase_max_fraction": 0.02,
+    "comparison_operating_point": "same pooled FPR target; pooled and subgroup FNR also reported",
+    "uncertainty": "paired contributor/video bootstrap; report support failures and single-seed limitations"
+  },
+  "remaining_requirements": [
+    "freeze completed teacher by native validation policy, not best-per-TEST rows",
+    "bind TRAIN/validation manifests and provenance",
+    "integrate tested student/loss primitives with complete training/evaluation pipeline",
+    "run controlled paired accuracy/fairness study including calibrated INT8 exported model",
+    "confirm board and flash/PSRAM partitions for ESP32 claim",
+    "export actual ESP-PPQ power-of-two .espdl and verify supported operators",
+    "measure full inference arena and camera/decode/crop buffers",
+    "measure on-device end-to-end p50/p95 latency, energy, and numerical agreement",
+    "establish real I&M problem and demonstrate measurement-system improvement for TIM scope"
+  ]
+}

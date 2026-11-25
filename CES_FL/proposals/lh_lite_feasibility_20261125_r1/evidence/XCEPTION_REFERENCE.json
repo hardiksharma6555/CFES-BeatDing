@@ -1,0 +1,10 @@
+{
+  "model": "L_H native Xception",
+  "weights": "RANDOM; architecture resource check only",
+  "parameters": 20809001,
+  "conv_linear_macs": 4550833120,
+  "largest_leaf_output_elements": 1520768,
+  "largest_leaf_output_fp32_bytes": 6083072,
+  "largest_leaf_output_hypothetical_int8_bytes": 1520768,
+  "peak_runtime_ram_measured": false
+}
