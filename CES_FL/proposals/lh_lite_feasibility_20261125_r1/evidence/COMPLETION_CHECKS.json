@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "tests": 8,
+  "command": "python -m unittest discover -s CES_FL/tests -p test_lite_completion_gate.py -v",
+  "verified_cases": [
+    "complete metadata accepted",
+    "zero process exit with incomplete run stops dependent shell action",
+    "short history rejected even with DONE",
+    "earliest-maximum-AUC tie rule enforced",
+    "changed checkpoint bytes rejected",
+    "changed scientific source rejected",
+    "unresolved budget stop rejected",
+    "changed original-image coverage rejected"
+  ],
+  "scientific_training_source_changed": false,
+  "GPU_training_launched": false,
+  "checker_sha256": "1076a1eb8b65b9c897de1316afd09be205f937245ae6894c1af9caa41792650f"
+}

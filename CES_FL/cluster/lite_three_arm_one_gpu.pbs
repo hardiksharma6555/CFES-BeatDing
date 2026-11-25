@@ -55,5 +55,11 @@ for CES_ARM in bce kd fair_response; do
     "$CES_PY" -u "$CES_LITE_ENTRY" train \
         --prepared "$CES_LITE_PREPARED/prepared_$CES_ARM" \
         --out "$CES_LITE_RUNS/$CES_ARM" --device cuda
+    # An epoch-boundary budget stop returns a normal process exit. Require
+    # native completion evidence before starting another arm or writing DONE.
+    "$CES_PY" "$CES_LITE_SOURCE/CES_FL/scripts/verify_lite_run.py" \
+        --run "$CES_LITE_RUNS/$CES_ARM" \
+        --prepared "$CES_LITE_PREPARED/prepared_$CES_ARM" \
+        --source-dir "$CES_LITE_SOURCE/CES_FL/src"
 done
 printf 'All three training arms completed; CPU quantization/analysis is separate.\n' > "$CES_LITE_RUNS/GPU_STAGE_DONE"

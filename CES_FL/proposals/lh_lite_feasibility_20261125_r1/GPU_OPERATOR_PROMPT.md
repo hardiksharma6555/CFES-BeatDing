@@ -31,7 +31,7 @@ CES_LITE_RUNS=<new absolute output root>
 CUDA_VISIBLE_DEVICES=<site-verified device assignment for this PBS job>
 ```
 
-The job runs three fresh CUDA backward checks and the three arms sequentially. It records PBS, source and CUDA metadata. Each arm has a 3,600-second runtime guard; a mid-epoch budget stop preserves a partial checkpoint and refuses automatic resume. A scheduler timeout may also leave an incomplete run. Preserve that state and report it; do not call it a completed ten-epoch experiment. Do not expand budgets or alter hyperparameters to chase validation scores.
+The job runs three fresh CUDA backward checks and the three arms sequentially. It records PBS, source and CUDA metadata. Each arm has a 3,600-second runtime guard; a mid-epoch budget stop preserves a partial checkpoint and refuses automatic resume. The launcher additionally verifies DONE, the full epoch history, original coverage, native checkpoint selection, checkpoint bytes and source hashes after each arm; a process exit0 alone cannot advance the chain. A scheduler timeout may also leave an incomplete run. Preserve that state and report it; do not call it a completed ten-epoch experiment. Do not expand budgets or alter hyperparameters to chase validation scores.
 
 ## CPU postprocessing
 
